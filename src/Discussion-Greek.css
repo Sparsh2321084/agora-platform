@@ -1,0 +1,744 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════
+   ATHENIAN AGORA - DARK STARRY THEME
+   Socratic Dialogue in the Temple of Reason
+   Matching Dashboard & Profile aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Golden Ratio */
+  --phi: 1.618; 
+  --phi-squared: 2.618;
+  
+  /* Typography Scale */
+  --text-h1: 2.618rem; 
+  --text-h2: 1.618rem; 
+  --text-h3: 1.2rem; 
+  --text-body: 1rem; 
+  --text-small: 0.875rem;
+  
+  /* Dark Color Palette */
+  --dark-bg: #1a1a2e;
+  --darker-bg: #16213e;
+  --darkest-bg: #0f3460;
+  --gold: #d4af37;
+  --light-gold: #f4d03f;
+  --text-light: #e8e8e8;
+  --text-muted: #a8a8a8;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(212, 175, 55, 0.3);
+  --hover-glow: rgba(212, 175, 55, 0.2);
+  
+  /* Legacy colors for compatibility */
+  --egyptian-blue: #1034A6;
+  --ivory: #FFF4E6;
+  --olympic-gold: var(--gold);
+  --dark-brown: #2C1810;
+  --cinnabar: #CD5C5C;
+  --azurite: #007FFF;
+  --ochre: #CC7722;
+  --tyrian-purple: #66023C;
+  
+  /* Spacing */
+  --space-xs: 0.382rem; 
+  --space-sm: 0.618rem; 
+  --space-md: 1rem; 
+  --space-lg: 1.618rem; 
+  --space-xl: 2.618rem; 
+  --space-xxl: 4.236rem;
+  
+  /* Shadows & Borders */
+  --stoa-border: 3px solid var(--gold); 
+  --column-shadow: 0 8px 24px rgba(0,0,0,0.6); 
+  --civic-glow: 0 0 30px rgba(212,175,55,0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DISCUSSION PAGE - Starry Temple Background
+   ═══════════════════════════════════════════════════════════════════ */
+
+.discussion-page { 
+  min-height: 100vh; 
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--darkest-bg) 100%);
+  font-family: 'EB Garamond', serif; 
+  color: var(--text-light); 
+  position: relative; 
+  overflow-x: hidden; 
+}
+
+/* Starry background */
+.discussion-page::before { 
+  content: ''; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 10% 90%, white, transparent),
+    radial-gradient(2px 2px at 40% 20%, white, transparent);
+  background-size: 200% 200%;
+  animation: starsShimmer 12s ease-in-out infinite;
+  opacity: 0.4;
+  pointer-events: none; 
+  z-index: 0;
+}
+
+@keyframes starsShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Temple columns decoration */
+.discussion-page::after { 
+  content: '🏛️'; 
+  position: fixed; 
+  bottom: 15%; 
+  right: 1%; 
+  font-size: 5rem; 
+  opacity: 0.08; 
+  z-index: 0; 
+  pointer-events: none; 
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION BAR - Golden Architrave
+   ═══════════════════════════════════════════════════════════════════ */
+
+.discussion-navbar { 
+  background: linear-gradient(90deg, rgba(26, 26, 46, 0.98) 0%, rgba(22, 33, 62, 0.95) 50%, rgba(26, 26, 46, 0.98) 100%);
+  backdrop-filter: blur(20px); 
+  border-bottom: var(--stoa-border); 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(212,175,55,0.4); 
+  padding: var(--space-md) var(--space-xl); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.navbar-logo { 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-h2); 
+  font-weight: 700; 
+  color: var(--gold); 
+  text-shadow: 0 0 30px rgba(212,175,55,0.7), 2px 2px 4px rgba(0,0,0,0.8); 
+  letter-spacing: 3px; 
+  animation: logoGlow 3s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(212,175,55,0.5);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(212,175,55,0.9);
+  }
+}
+
+.navbar-logo::before { 
+  content: '◆'; 
+  margin-right: 0.5rem; 
+  color: var(--cinnabar); 
+}
+
+.nav-links { 
+  display: flex; 
+  gap: var(--space-lg); 
+  align-items: center; 
+}
+
+.nav-link-btn, .back-to-dashboard-btn { 
+  background: linear-gradient(135deg, var(--gold), var(--light-gold)); 
+  color: var(--dark-bg); 
+  padding: var(--space-sm) var(--space-lg); 
+  border: 2px solid var(--gold); 
+  border-radius: 8px; 
+  font-family: 'Cinzel', serif; 
+  font-size: 0.95rem; 
+  font-weight: 600; 
+  text-decoration: none; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3); 
+  position: relative; 
+  overflow: hidden; 
+}
+
+.nav-link-btn:hover, .back-to-dashboard-btn:hover { 
+  border-color: var(--light-gold); 
+  box-shadow: 0 6px 20px rgba(212,175,55,0.6); 
+  transform: translateY(-2px); 
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DISCUSSION HEADER - Sacred Title
+   ═══════════════════════════════════════════════════════════════════ */
+
+.discussion-header-section { 
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95)); 
+  backdrop-filter: blur(20px);
+  border: var(--stoa-border); 
+  border-radius: 16px; 
+  padding: var(--space-xl); 
+  margin: var(--space-xl) auto; 
+  max-width: 1200px; 
+  box-shadow: var(--column-shadow); 
+  position: relative; 
+  z-index: 1; 
+}
+
+.discussion-title { 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-h1); 
+  font-weight: 900; 
+  color: var(--gold); 
+  text-align: center; 
+  margin-bottom: var(--space-md); 
+  text-shadow: 0 0 40px var(--gold), 2px 2px 0 rgba(0,0,0,0.5); 
+  letter-spacing: 2px; 
+}
+
+.discussion-belief { 
+  font-family: 'EB Garamond', serif; 
+  font-size: var(--text-h3); 
+  font-style: italic; 
+  color: var(--text-light); 
+  text-align: center; 
+  margin-bottom: var(--space-sm); 
+}
+
+.discussion-category { 
+  display: inline-block; 
+  background: linear-gradient(135deg, var(--gold), var(--light-gold)); 
+  color: var(--dark-bg); 
+  padding: var(--space-xs) var(--space-md); 
+  border-radius: 20px; 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-small); 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  margin: 0 auto; 
+  width: fit-content; 
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ORIGINAL POST - Sacred Argument
+   ═══════════════════════════════════════════════════════════════════ */
+
+.original-post { 
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)); 
+  backdrop-filter: blur(15px);
+  border: 4px solid var(--gold); 
+  border-radius: 16px; 
+  padding: var(--space-xl); 
+  margin: var(--space-xl) auto; 
+  max-width: 1200px; 
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(212, 175, 55, 0.2); 
+  position: relative; 
+  z-index: 1; 
+}
+
+.post-author-section { 
+  display: flex; 
+  align-items: center; 
+  gap: var(--space-md); 
+  margin-bottom: var(--space-lg); 
+  padding-bottom: var(--space-md); 
+  border-bottom: 2px solid var(--gold); 
+}
+
+.author-avatar { 
+  width: 60px; 
+  height: 60px; 
+  border-radius: 50%; 
+  border: 3px solid var(--gold); 
+  box-shadow: 0 0 20px rgba(212,175,55,0.6); 
+}
+
+.author-info { 
+  flex: 1; 
+}
+
+.author-name { 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-h3); 
+  font-weight: 700; 
+  color: var(--gold); 
+  margin-bottom: 0.25rem; 
+}
+
+.post-metadata { 
+  font-size: var(--text-small); 
+  color: var(--text-muted); 
+  opacity: 0.8; 
+}
+
+.post-content { 
+  font-family: 'EB Garamond', serif; 
+  font-size: 1.1rem; 
+  line-height: 1.8; 
+  color: var(--text-light); 
+  margin-bottom: var(--space-lg); 
+  padding-left: var(--space-md); 
+  border-left: 4px solid var(--gold); 
+}
+
+.post-stats { 
+  display: flex; 
+  gap: var(--space-lg); 
+  font-size: var(--text-small); 
+  color: var(--text-muted); 
+  opacity: 0.9; 
+}
+
+.stat-item { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   REPLIES SECTION - Socratic Dialogue
+   ═══════════════════════════════════════════════════════════════════ */
+
+.replies-section { 
+  max-width: 1200px; 
+  margin: var(--space-xl) auto; 
+  padding: var(--space-lg); 
+  background: rgba(26, 26, 46, 0.3); 
+  backdrop-filter: blur(10px);
+  border-radius: 16px; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.replies-header { 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-h2); 
+  font-weight: 700; 
+  color: var(--gold); 
+  margin-bottom: var(--space-lg); 
+  padding-bottom: var(--space-md); 
+  border-bottom: 3px solid var(--gold); 
+  display: flex; 
+  align-items: center; 
+  gap: var(--space-sm); 
+}
+
+.replies-header::before { 
+  content: '◆'; 
+  color: var(--cinnabar); 
+  font-size: 1.2rem; 
+}
+
+.socratic-dialogue-thread { 
+  display: flex; 
+  flex-direction: column; 
+  gap: var(--space-lg); 
+}
+
+.reply-card { 
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.85), rgba(22, 33, 62, 0.85)); 
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--card-border); 
+  border-left: 5px solid var(--gold); 
+  border-radius: 12px; 
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5); 
+  transition: all 0.3s ease; 
+  position: relative;
+  display: flex;
+  gap: var(--space-md);
+  /* Performance optimization */
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.reply-vote-section {
+  flex-shrink: 0;
+  padding-top: var(--space-sm);
+}
+
+.reply-main-content {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-lg);
+}
+
+.reply-card:hover { 
+  transform: translateX(8px); 
+  box-shadow: 0 8px 28px rgba(0,0,0,0.7); 
+  border-left-color: var(--light-gold); 
+  border-color: var(--gold);
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+}
+
+.reply-author-section { 
+  display: flex; 
+  align-items: center; 
+  gap: var(--space-md); 
+  margin-bottom: var(--space-md); 
+}
+
+.reply-avatar { 
+  width: 45px; 
+  height: 45px; 
+  border-radius: 50%; 
+  border: 2px solid var(--gold); 
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.reply-author-info { 
+  flex: 1; 
+}
+
+.reply-author-name { 
+  font-family: 'Cinzel', serif; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  color: var(--gold); 
+}
+
+.reply-timestamp { 
+  font-size: var(--text-small); 
+  color: var(--text-muted); 
+  opacity: 0.8; 
+}
+
+.reply-content { 
+  font-family: 'EB Garamond', serif; 
+  font-size: 1rem; 
+  line-height: 1.7; 
+  color: var(--text-light); 
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   REPLY FORM - Sacred Contribution
+   ═══════════════════════════════════════════════════════════════════ */
+
+.reply-form-section { 
+  max-width: 1200px; 
+  margin: var(--space-xl) auto var(--space-xxl) auto; 
+  padding: var(--space-xl); 
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95)); 
+  backdrop-filter: blur(20px);
+  border: var(--stoa-border); 
+  border-radius: 16px; 
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7); 
+  position: relative; 
+  z-index: 1; 
+}
+
+/* Real-time Typing Indicator */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  margin-bottom: var(--space-md);
+  animation: fadeIn 0.3s ease;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.typing-dots span {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: typingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typingBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.typing-text {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Live indicator */
+.live-indicator {
+  background: rgba(76, 175, 80, 0.2);
+  border: 1px solid rgba(76, 175, 80, 0.4);
+  padding: 4px 12px;
+  border-radius: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reply-form-title { 
+  font-family: 'Cinzel', serif; 
+  font-size: var(--text-h2); 
+  font-weight: 700; 
+  color: var(--gold); 
+  margin-bottom: var(--space-lg); 
+  text-align: center; 
+  text-shadow: 0 0 30px rgba(212,175,55,0.6); 
+}
+
+.reply-form { 
+  display: flex; 
+  flex-direction: column; 
+  gap: var(--space-lg); 
+}
+
+.reply-textarea { 
+  width: 100%; 
+  min-height: 150px; 
+  padding: var(--space-md); 
+  font-family: 'EB Garamond', serif; 
+  font-size: 1rem; 
+  line-height: 1.7; 
+  background: rgba(26, 26, 46, 0.8); 
+  border: 3px solid var(--card-border); 
+  border-radius: 12px; 
+  color: var(--text-light); 
+  resize: vertical; 
+  transition: all 0.3s ease; 
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.reply-textarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.reply-textarea:focus { 
+  outline: none; 
+  box-shadow: 0 0 30px rgba(212,175,55,0.5), inset 0 2px 8px rgba(0, 0, 0, 0.4); 
+  background: rgba(26, 26, 46, 0.95); 
+  border-color: var(--gold);
+}
+
+.reply-submit-btn { 
+  align-self: center; 
+  padding: var(--space-md) var(--space-xl); 
+  background: linear-gradient(135deg, var(--gold), var(--light-gold)); 
+  color: var(--dark-bg); 
+  border: 3px solid var(--gold); 
+  border-radius: 12px; 
+  font-family: 'Cinzel', serif; 
+  font-size: 1.1rem; 
+  font-weight: 700; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4); 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+}
+
+.reply-submit-btn:hover { 
+  background: linear-gradient(135deg, var(--light-gold), var(--gold)); 
+  box-shadow: 0 8px 32px rgba(212,175,55,0.7); 
+  transform: translateY(-3px); 
+  border-color: var(--light-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .discussion-page::before, .discussion-page::after { display: none; }
+  
+  /* Mobile Navigation - Greek Theme */
+  .discussion-navbar { 
+    padding: 0.75rem 1rem;
+    justify-content: space-between;
+  }
+  
+  .nav-buttons {
+    display: none; /* Hide on mobile, hamburger menu shows */
+  }
+  
+  .navbar-logo { 
+    font-size: 1.4rem; 
+  }
+  
+  /* Discussion Content - Single Column */
+  .discussion-container {
+    padding: 1rem;
+  }
+  
+  .discussion-header-section { 
+    margin: 0;
+    padding: 1.25rem;
+  }
+  
+  .discussion-title { 
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  
+  .discussion-meta-info {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .meta-item {
+    font-size: 0.85rem;
+  }
+  
+  /* Original Post - Touch Optimized */
+  .original-post { 
+    margin: 1rem 0;
+    padding: 1.25rem;
+  }
+  
+  .post-author-section { 
+    gap: 0.75rem;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Reply Cards - Stack Vertically */
+  .replies-section { 
+    padding: 1rem;
+  }
+  
+  .reply-card { 
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .reply-card:hover { 
+    transform: none; /* Disable hover on touch */
+  }
+  
+  .reply-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .reply-content {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Reply Form - Touch Targets */
+  .reply-form-section {
+    padding: 1.25rem;
+  }
+  
+  .reply-textarea {
+    min-height: 120px;
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: 0.75rem;
+  }
+  
+  .submit-reply-btn,
+  .back-to-dashboard-btn,
+  .nav-link-btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Category Tag */
+  .discussion-category-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .discussion-title { 
+    font-size: 1.5rem; 
+  }
+  
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+  
+  .discussion-header-section,
+  .original-post,
+  .replies-section,
+  .reply-form-section {
+    padding: 1rem;
+  }
+  
+  .post-content { 
+    font-size: 0.95rem; 
+  }
+  
+  .reply-textarea { 
+    min-height: 100px; 
+  }
+  
+  .meta-item {
+    font-size: 0.8rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gold);
+}

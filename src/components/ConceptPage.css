@@ -1,0 +1,297 @@
+/* CONCEPT PAGE - Reusable Greek-Themed Design */
+
+.concept-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d17 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e8e8e8;
+  /* Performance optimization */
+  contain: layout style;
+}
+
+/* Hero Section */
+.concept-hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-icon {
+  font-size: clamp(4rem, 10vw, 8rem);
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 30px currentColor);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #d4af37;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.hero-greek {
+  display: block;
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  font-weight: 400;
+  margin-top: 0.75rem;
+}
+
+.hero-tagline {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #c8c8c8;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content */
+.concept-content {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Quote */
+.philosophy-quote {
+  background: rgba(212, 175, 55, 0.05);
+  border-left: 4px solid #d4af37;
+  padding: 2.5rem;
+  margin: 3rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #e8e8e8;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.quote-greek {
+  font-size: 1rem;
+  color: #888;
+  font-family: 'Georgia', serif;
+}
+
+/* Definition */
+.concept-definition {
+  margin: 4rem 0;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  color: #d4af37;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.definition-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #c8c8c8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Principles Grid */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.principle-card {
+  background: rgba(26, 26, 46, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  /* Performance */
+  will-change: transform;
+}
+
+.principle-card:hover {
+  border-color: #d4af37;
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+}
+
+.principle-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.principle-title {
+  font-size: 1.4rem;
+  color: #d4af37;
+  margin-bottom: 0.75rem;
+}
+
+.principle-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #b8b8b8;
+}
+
+/* Philosophers */
+.philosophers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.philosopher-card {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.philosopher-card:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #d4af37;
+}
+
+.philosopher-name {
+  font-size: 1.3rem;
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.philosopher-contribution {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b8b8b8;
+}
+
+/* Modern Applications */
+.modern-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.modern-list li {
+  background: rgba(26, 26, 46, 0.6);
+  border-left: 3px solid #d4af37;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #c8c8c8;
+  transition: all 0.3s ease;
+}
+
+.modern-list li:hover {
+  background: rgba(212, 175, 55, 0.08);
+  transform: translateX(5px);
+}
+
+/* Call to Action */
+.concept-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin: 4rem 0 2rem;
+  background: rgba(212, 175, 55, 0.05);
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+}
+
+.concept-cta h3 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+}
+
+.concept-cta p {
+  font-size: 1.1rem;
+  color: #b8b8b8;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cta-btn.primary-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f2d06b 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.cta-btn.primary-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .concept-hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .concept-content {
+    padding: 3rem 1.5rem;
+  }
+
+  .principles-grid,
+  .philosophers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-quote {
+    padding: 1.5rem;
+  }
+
+  .definition-text {
+    text-align: left;
+  }
+}
+
+/* Performance: Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .hero-icon {
+    animation: none;
+  }
+}

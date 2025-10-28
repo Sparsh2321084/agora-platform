@@ -1,0 +1,568 @@
+/* ═══════════════════════════════════════════════════════════════
+   AGORA PLATFORM - ANCIENT GREEK ART & PHILOSOPHY THEME
+   Based on Parthenon proportions, Polychrome reconstruction,
+   and the philosophical traditions of Plato and Aristotle
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM GREEK-STYLED CURSOR
+   ═══════════════════════════════════════════════════════════════ */
+
+* {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23D4AF37;stop-opacity:1" /><stop offset="100%" style="stop-color:%23C9A961;stop-opacity:1" /></linearGradient></defs><path d="M3 3 L10 20 L13 13 L20 10 Z" fill="url(%23grad)" stroke="%231a1a2e" stroke-width="1.5"/><path d="M3 3 L10 20 L13 13 L20 10 Z" fill="none" stroke="%23FFF" stroke-width="0.5" opacity="0.4"/></svg>'), auto !important;
+}
+
+button, a, [role="button"], input[type="button"], input[type="submit"], .clickable {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><defs><linearGradient id="gradHover" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFD700;stop-opacity:1" /><stop offset="50%" style="stop-color:%23D4AF37;stop-opacity:1" /><stop offset="100%" style="stop-color:%23C9A961;stop-opacity:1" /></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="1.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(%23glow)"><path d="M4 4 L14 4 L14 10 L22 10 L22 24 L10 24 L10 14 L4 14 Z" fill="url(%23gradHover)" stroke="%231a1a2e" stroke-width="2"/><circle cx="14" cy="10" r="3" fill="%23FFD700" opacity="0.8"/><path d="M4 4 L14 4 L14 10 L22 10 L22 24 L10 24 L10 14 L4 14 Z" fill="none" stroke="%23FFF" stroke-width="0.8" opacity="0.6"/></g></svg>'), pointer !important;
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" viewBox="0 0 24 28"><path d="M12 2 L12 26 M8 6 L12 2 L16 6 M8 22 L12 26 L16 22" stroke="%23D4AF37" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M12 2 L12 26" stroke="%23FFD700" stroke-width="0.8" opacity="0.6"/></svg>'), text !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   END CUSTOM CURSOR STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Import Greek Design System Foundation */
+/* Import Greek Design System */
+@import './styles/GreekDesignSystem.css';
+
+/* Import Phase 3: Micro-Animations */
+@import './styles/MicroAnimations.css';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   ACCESSIBILITY IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Skip Link for Keyboard Navigation */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #d4af37;
+  color: #1a1a2e;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Enhanced Focus Visible for Keyboard Navigation */
+*:focus-visible {
+  outline: 3px solid #d4af37;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.2);
+}
+
+/* Remove default focus to prevent double outlines */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+body {
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FFF8F0;
+  color: #2C1810;
+  line-height: 1.618;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F0E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F4C430;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(16, 52, 166, 0.2);
+  color: #1a1a1a;
+}
+
+/* Import Classical Greek Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL RESETS & BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-classical);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--shadow-black);
+  background: var(--gradient-temple);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle marble texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 95%, var(--marble-vein) 100%),
+    linear-gradient(0deg, transparent 97%, var(--marble-vein) 100%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* App Container */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+   ═══════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-epigraphic);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wider);
+  color: var(--egyptian-blue);
+  margin-bottom: var(--space-md);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5, h6 {
+  font-size: var(--text-lg);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-normal);
+}
+
+a {
+  color: var(--ionic-primary);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-natural);
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: var(--olympic-gold);
+  border-bottom-color: var(--olympic-gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FORM ELEMENTS - Greek Style
+   ═══════════════════════════════════════════════════════════════ */
+
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-classical);
+  font-size: var(--text-base);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border: 2px solid var(--marble-vein);
+  border-radius: var(--radius-md);
+  background: var(--parian-marble);
+  color: var(--shadow-black);
+  transition: all var(--duration-fast) var(--ease-natural);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--ionic-primary);
+  box-shadow: 0 0 0 3px var(--ionic-shadow);
+}
+
+button {
+  padding: var(--space-md) var(--space-xl);
+  border: 2px solid var(--olympic-gold);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--olympic-gold) 0%, var(--bronze-bright) 100%);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-natural);
+  box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), var(--glow-gold);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR STYLING - Bronze & Gold
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--limestone);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--olympic-gold) 0%, var(--bronze-bright) 100%);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--limestone);
+  transition: background var(--duration-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--bronze-bright) 0%, var(--olympic-gold) 100%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SELECTION STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+::selection {
+  background: var(--olympic-gold);
+  color: var(--shadow-black);
+}
+
+::-moz-selection {
+  background: var(--olympic-gold);
+  color: var(--shadow-black);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  background: var(--limestone);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR SYSTEM - Greek Aesthetic
+   Digital Pointer of Philosophical Intent
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Default Cursor - Refined pointer */
+* {
+  cursor: default;
+}
+
+/* Clickable Elements - Golden Hand of Action */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.clickable {
+  cursor: pointer;
+  transition: filter var(--duration-fast);
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover {
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+/* Text Areas - I-beam for writing */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* Disabled Elements - Not Allowed */
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Draggable Elements - Move cursor */
+[draggable="true"],
+.draggable {
+  cursor: move;
+  cursor: grab;
+}
+
+[draggable="true"]:active,
+.draggable:active {
+  cursor: grabbing;
+}
+
+/* Loading State - Wait cursor */
+.loading,
+[aria-busy="true"] {
+  cursor: wait;
+}
+
+/* Help/Info Elements - Question mark */
+[title]:not(a):not(button),
+.help-text,
+.tooltip-trigger {
+  cursor: help;
+}
+
+/* Zoom/Expand Elements */
+.zoom-in,
+.expandable {
+  cursor: zoom-in;
+}
+
+.zoom-out {
+  cursor: zoom-out;
+}
+
+/* Resize Elements */
+.resize-horizontal {
+  cursor: ew-resize;
+}
+
+.resize-vertical {
+  cursor: ns-resize;
+}
+
+.resize-diagonal-1 {
+  cursor: nwse-resize;
+}
+
+.resize-diagonal-2 {
+  cursor: nesw-resize;
+}
+
+/* Context Menu Trigger */
+.context-menu-trigger {
+  cursor: context-menu;
+}
+
+/* Progress/Loading State */
+.progress {
+  cursor: progress;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GREEK-INSPIRED CUSTOM CURSORS
+   Marble Chisel, Quill Pen, Laurel Leaf, Owl Eye
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (pointer: fine) {
+  /* Default Cursor - Golden Laurel Leaf Pointer */
+  body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 3l8 18 3-8 8-3z" fill="%23D4AF37" stroke="%231a1a2e" stroke-width="1.5"/><path d="M11 11l-2 8" stroke="%23FFD700" stroke-width="0.5"/></svg>') 3 3, auto;
+  }
+  
+  /* Clickable Elements - Golden Hand with Lightning */
+  a:not([disabled]),
+  button:not([disabled]),
+  [role="button"]:not([disabled]),
+  input[type="submit"]:not([disabled]),
+  input[type="button"]:not([disabled]),
+  .clickable {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="4" fill="%23FFD700" opacity="0.3"/><path d="M10 4l3 10h-4l-1 10 10-14h-5z" fill="%23D4AF37" stroke="%231a1a2e" stroke-width="1"/></svg>') 10 4, pointer;
+  }
+  
+  /* Text Input - Elegant Quill Pen */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  [contenteditable="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24"><path d="M10 0c-2 0-3 1-3 2v1c0 1-1 2-2 3l-3 6 3 3 3-3c1-1 2-1 2-2V2c0-1-1-2 0-2zm-2 12l-3 8h2l2-6z" fill="%23D4AF37" stroke="%231a1a2e" stroke-width="1"/><path d="M8 12l1 2" stroke="%23FFD700" stroke-width="0.5"/></svg>') 10 0, text;
+  }
+  
+  /* Draggable - Marble Chisel */
+  [draggable="true"]:not(:active),
+  .draggable:not(:active) {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="16" rx="1" fill="%23D4AF37" stroke="%231a1a2e" stroke-width="1"/><polygon points="6,18 18,18 14,24 10,24" fill="%23A0826D" stroke="%231a1a2e" stroke-width="1"/><rect x="10" y="4" width="4" height="2" fill="%23FFD700" opacity="0.6"/></svg>') 12 2, move;
+  }
+  
+  [draggable="true"]:active,
+  .draggable:active {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="16" rx="1" fill="%23FFD700" stroke="%231a1a2e" stroke-width="1.5"/><polygon points="6,18 18,18 14,24 10,24" fill="%23D4AF37" stroke="%231a1a2e" stroke-width="1.5"/></svg>') 12 2, grabbing;
+  }
+  
+  /* Help/Tooltip - Owl Eye (Symbol of Wisdom) */
+  [title]:not(a):not(button),
+  .help-text,
+  .tooltip-trigger {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%231a1a2e" stroke="%23D4AF37" stroke-width="2"/><circle cx="12" cy="12" r="6" fill="%23FFD700"/><circle cx="12" cy="12" r="3" fill="%231a1a2e"/><circle cx="13" cy="11" r="1" fill="%23FFD700"/><path d="M6 8c1-2 3-3 6-3s5 1 6 3" stroke="%23D4AF37" stroke-width="1.5" fill="none"/></svg>') 12 12, help;
+  }
+  
+  /* Loading/Wait - Spinning Greek Key Pattern */
+  .loading,
+  [aria-busy="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="%23D4AF37" stroke-width="2" stroke-dasharray="15 5"/><path d="M12 4v4m0 8v4m8-8h-4m-8 0H4" stroke="%23FFD700" stroke-width="2"/></svg>') 12 12, wait;
+  }
+  
+  /* Disabled - Broken Column */
+  button:disabled,
+  input:disabled,
+  select:disabled,
+  textarea:disabled,
+  [aria-disabled="true"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="%23666" opacity="0.3"/><line x1="6" y1="6" x2="18" y2="18" stroke="%23999" stroke-width="2"/><line x1="18" y1="6" x2="6" y2="18" stroke="%23999" stroke-width="2"/></svg>') 12 12, not-allowed;
+  }
+  
+  /* Zoom In - Magnifying Glass with Greek Meander */
+  .zoom-in,
+  .expandable {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7" fill="none" stroke="%23D4AF37" stroke-width="2"/><path d="M10 6v8M6 10h8" stroke="%23FFD700" stroke-width="2"/><line x1="15" y1="15" x2="22" y2="22" stroke="%23D4AF37" stroke-width="2"/></svg>') 10 10, zoom-in;
+  }
+}
+
+/* Fallback for touch devices (no custom cursors) */
+@media (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Cursor Enhancements for Dark Theme Pages */
+.dark-theme * {
+  cursor: default;
+}
+
+.dark-theme a:hover,
+.dark-theme button:hover {
+  filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 215, 0, 0.5));
+}
+
+/* Accessibility: Ensure cursor visibility on all backgrounds */
+@media (prefers-contrast: high) {
+  * {
+    cursor: default !important;
+  }
+  
+  a, button, [role="button"] {
+    cursor: pointer !important;
+    outline: 2px solid currentColor;
+  }
+}

@@ -1,0 +1,105 @@
+.session-warning {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 10000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.session-warning-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(255, 87, 34, 0.4);
+  max-width: 400px;
+}
+
+.warning-icon {
+  font-size: 24px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.warning-text {
+  flex: 1;
+}
+
+.warning-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.warning-text p {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.extend-btn {
+  background: white;
+  color: #ff5722;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.extend-btn:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.extend-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .session-warning {
+    top: 70px;
+    right: 10px;
+    left: 10px;
+  }
+
+  .session-warning-content {
+    max-width: none;
+    padding: 12px 15px;
+  }
+
+  .warning-text strong {
+    font-size: 13px;
+  }
+
+  .warning-text p {
+    font-size: 12px;
+  }
+}

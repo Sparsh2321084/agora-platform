@@ -1,0 +1,192 @@
+/* ========================================
+   PAGE TRANSITIONS
+   Greek theater curtain reveals
+   ======================================== */
+
+/* Curtain Effect */
+.page-curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    #f5f0e8 0%,
+    #e8dcc8 25%,
+    #f5f0e8 50%,
+    #e8dcc8 75%,
+    #f5f0e8 100%
+  );
+}
+
+/* Greek pattern overlay */
+.page-curtain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(212, 175, 55, 0.1) 30px,
+      rgba(212, 175, 55, 0.1) 32px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(212, 175, 55, 0.1) 30px,
+      rgba(212, 175, 55, 0.1) 32px
+    );
+}
+
+/* Gold border */
+.page-curtain::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #d4af37 0px,
+    #d4af37 20px,
+    #f4d03f 20px,
+    #f4d03f 40px
+  );
+}
+
+/* Exit Animation - Curtain closes */
+.page-curtain.exit {
+  animation: curtainClose 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtainClose {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+/* Enter Animation - Curtain opens */
+.page-curtain.enter {
+  animation: curtainOpen 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtainOpen {
+  0% {
+    clip-path: circle(150% at 50% 50%);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+}
+
+/* Page Content Animations */
+.page-content {
+  animation: contentFadeIn 0.8s ease-out;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-content.fade-out {
+  animation: contentFadeOut 0.6s ease-in forwards;
+}
+
+@keyframes contentFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.page-content.fade-in {
+  animation: contentFadeIn 0.8s ease-out;
+}
+
+/* Alternative: Vertical Split Curtain */
+.page-curtain.split {
+  animation: curtainSplit 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtainSplit {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+}
+
+/* Performance Optimizations */
+.page-curtain,
+.page-content {
+  will-change: opacity, transform, clip-path;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .page-curtain {
+    animation: simpleF ade 0.3s ease;
+  }
+
+  @keyframes simpleFade {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .page-content.fade-out,
+  .page-content.fade-in {
+    animation: simpleFade 0.3s ease;
+  }
+}
+
+/* Mobile - Faster transitions */
+@media (max-width: 768px) {
+  .page-curtain.exit {
+    animation-duration: 0.4s;
+  }
+
+  .page-curtain.enter {
+    animation-duration: 0.6s;
+  }
+
+  .page-content {
+    animation-duration: 0.6s;
+  }
+}

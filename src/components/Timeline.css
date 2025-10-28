@@ -1,0 +1,279 @@
+/* ========================================
+   GREEK TIMELINE - PAPYRUS SCROLL
+   Vertical timeline with wax seals and icons
+   ======================================== */
+
+.greek-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-path {
+  position: relative;
+  padding-left: 3rem;
+}
+
+/* Vertical Line - Papyrus Edge */
+.timeline-path::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #d4af37 10%,
+    #cd7f32 50%,
+    #d4af37 90%,
+    transparent 100%
+  );
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  animation: timelineSlide 0.6s ease-out backwards;
+  animation-delay: calc(var(--item-index, 0) * 0.15s);
+}
+
+@keyframes timelineSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Marker Container */
+.timeline-marker {
+  position: absolute;
+  left: -3rem;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Marker Icon - Wax Seal/Amphora Style */
+.marker-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 100%);
+  border: 3px solid #d4af37;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item:hover .marker-icon {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 
+    0 6px 18px rgba(212, 175, 55, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Status-specific colors */
+.timeline-item.active .marker-icon {
+  border-color: #4a7c59;
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(74, 124, 89, 0.3),
+      inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 
+      0 6px 18px rgba(74, 124, 89, 0.5),
+      inset 0 2px 4px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(74, 124, 89, 0.4);
+  }
+}
+
+.timeline-item.resolved .marker-icon {
+  border-color: #cd7f32;
+  background: linear-gradient(135deg, #cd7f32 0%, #e89552 100%);
+}
+
+.timeline-item.archived .marker-icon {
+  border-color: #8a8a7a;
+  opacity: 0.7;
+}
+
+/* Timeline Content - Papyrus Scroll */
+.timeline-content {
+  background: linear-gradient(135deg, #f5f0e8 0%, #e8dcc8 50%, #f5f0e8 100%);
+  border: 2px solid #d4c5aa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-left: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Papyrus texture */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(212, 197, 170, 0.05) 2px,
+      rgba(212, 197, 170, 0.05) 4px
+    );
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateX(10px);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+/* Scroll decoration */
+.timeline-scroll {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gold accent at top */
+.timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #d4af37, #f4d03f, #d4af37);
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+/* Timeline Title */
+.timeline-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4a4a3a;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+/* Timeline Description */
+.timeline-description {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6b6b5a;
+  margin: 0.75rem 0;
+}
+
+/* Timeline Date */
+.timeline-date {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #8a8a7a;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.timeline-date::before {
+  content: '🕐';
+  font-size: 1rem;
+}
+
+/* Add stagger index */
+.timeline-item:nth-child(1) { --item-index: 0; }
+.timeline-item:nth-child(2) { --item-index: 1; }
+.timeline-item:nth-child(3) { --item-index: 2; }
+.timeline-item:nth-child(4) { --item-index: 3; }
+.timeline-item:nth-child(5) { --item-index: 4; }
+.timeline-item:nth-child(6) { --item-index: 5; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline-path {
+    padding-left: 2rem;
+  }
+
+  .timeline-path::before {
+    left: 1rem;
+  }
+
+  .timeline-marker {
+    left: -2rem;
+  }
+
+  .marker-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+
+  .timeline-content {
+    margin-left: 1rem;
+    padding: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .timeline-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-path {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-path::before {
+    left: 0.75rem;
+  }
+
+  .timeline-marker {
+    left: -1.5rem;
+  }
+
+  .marker-icon {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .timeline-content {
+    margin-left: 0.75rem;
+  }
+}

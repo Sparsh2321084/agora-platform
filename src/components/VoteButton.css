@@ -1,0 +1,262 @@
+/* ============================================
+   VOTE BUTTON COMPONENT - Reddit-Style Voting
+   ============================================ */
+
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  border: 1px solid rgba(218, 165, 32, 0.1);
+  transition: all 0.3s ease;
+}
+
+.vote-container:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(218, 165, 32, 0.2);
+}
+
+.vote-container.animating {
+  animation: voteAnimation 0.3s ease;
+}
+
+@keyframes voteAnimation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Vote Buttons */
+.vote-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: rgba(218, 165, 32, 0.5);
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vote-btn:hover:not(:disabled) {
+  background: rgba(218, 165, 32, 0.1);
+  color: var(--gold);
+  transform: scale(1.15);
+}
+
+.vote-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.vote-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Upvote Button */
+.upvote-btn.active {
+  color: #ff4500;
+  animation: upvotePulse 0.3s ease;
+}
+
+.upvote-btn.active:hover {
+  color: #ff5722;
+}
+
+@keyframes upvotePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3) rotate(5deg); }
+}
+
+/* Downvote Button */
+.downvote-btn.active {
+  color: #7193ff;
+  animation: downvotePulse 0.3s ease;
+}
+
+.downvote-btn.active:hover {
+  color: #5a7cff;
+}
+
+@keyframes downvotePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3) rotate(-5deg); }
+}
+
+/* Vote Icon */
+.vote-icon {
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease;
+}
+
+.vote-btn:hover .vote-icon {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* Voting State */
+.vote-btn.voting {
+  animation: votingSpinner 1s linear infinite;
+}
+
+@keyframes votingSpinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Vote Score */
+.vote-score {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  min-width: 36px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.vote-score.positive {
+  color: #ff4500;
+  background: rgba(255, 69, 0, 0.1);
+}
+
+.vote-score.negative {
+  color: #7193ff;
+  background: rgba(113, 147, 255, 0.1);
+}
+
+.vote-score.neutral {
+  color: rgba(218, 165, 32, 0.7);
+  background: rgba(218, 165, 32, 0.05);
+}
+
+.score-number {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Score Breakdown Tooltip */
+.score-breakdown {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: var(--gold);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+  margin-bottom: 8px;
+  border: 1px solid rgba(218, 165, 32, 0.3);
+  font-family: 'Lato', sans-serif;
+}
+
+.score-breakdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.vote-score:hover .score-breakdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vote-container {
+    padding: 6px;
+    gap: 2px;
+  }
+
+  .vote-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .score-number {
+    font-size: 14px;
+  }
+
+  .vote-btn {
+    padding: 2px;
+  }
+}
+
+/* Dark Theme Adjustments */
+@media (prefers-color-scheme: dark) {
+  .vote-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(218, 165, 32, 0.15);
+  }
+
+  .vote-container:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(218, 165, 32, 0.25);
+  }
+}
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: high) {
+  .vote-btn {
+    border: 2px solid currentColor;
+  }
+
+  .vote-score {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .vote-container,
+  .vote-btn,
+  .vote-icon,
+  .vote-score {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .vote-container.animating {
+    animation: none;
+  }
+}
+
+/* Loading Skeleton for Vote Button */
+.vote-skeleton {
+  width: 60px;
+  height: 120px;
+  background: linear-gradient(
+    90deg,
+    rgba(218, 165, 32, 0.05) 25%,
+    rgba(218, 165, 32, 0.1) 50%,
+    rgba(218, 165, 32, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeletonLoading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

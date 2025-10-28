@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════
+   LOGIN - ORACLE OF DELPHI (DARK STARRY THEME)
+   Sacred Threshold of Knowledge
+   Matching Dashboard & Profile aesthetic
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Dark Color Palette */
+  --dark-bg: #1a1a2e;
+  --darker-bg: #16213e;
+  --darkest-bg: #0f3460;
+  --gold: #d4af37;
+  --light-gold: #f4d03f;
+  --text-light: #e8e8e8;
+  --text-muted: #a8a8a8;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(212, 175, 55, 0.3);
+  --hover-glow: rgba(212, 175, 55, 0.2);
+  --olympic-gold: #D4AF37;
+  --ivory: #FFF4E6;
+  --egyptian-blue: #1034A6;
+  --dark-brown: #2C1810;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTAINER - Starry Night Oracle Chamber
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--darkest-bg) 100%);
+  padding: 2rem;
+  position: relative;
+  font-family: 'EB Garamond', serif;
+  overflow: hidden;
+}
+
+/* Starry background */
+.login-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent),
+    radial-gradient(2px 2px at 90% 60%, white, transparent),
+    radial-gradient(1px 1px at 33% 80%, white, transparent),
+    radial-gradient(1px 1px at 10% 90%, white, transparent),
+    radial-gradient(2px 2px at 40% 20%, white, transparent);
+  background-size: 200% 200%;
+  animation: starsShimmer 12s ease-in-out infinite;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes starsShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Greek meander pattern overlay */
+.login-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='greek-meander' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0,20 L20,20 L20,0 L40,0 L40,40 L0,40 L0,60 L60,60 L60,0 L80,0 L80,80 L20,80 L20,100' stroke='%23D4AF37' stroke-width='2' fill='none' opacity='0.15'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23greek-meander)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DELPHIC MAXIM BANNER - "Know Thyself"
+   ═══════════════════════════════════════════════════════════════════ */
+
+.greek-pattern-bg {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.greek-pattern-bg::before {
+  content: '« ΓΝΩΘΙ ΣΑΥΤΟΝ »';
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.greek-pattern-bg::after {
+  content: 'Know Thyself';
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(212, 175, 55, 1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ORACLE CARD - Sacred Threshold
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+  backdrop-filter: blur(20px);
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  box-shadow: 
+    0 0 0 8px rgba(212, 175, 55, 0.2),
+    0 16px 48px rgba(0, 0, 0, 0.8),
+    inset 0 2px 4px rgba(212, 175, 55, 0.1);
+  min-width: 420px;
+  max-width: 500px;
+  width: 100%;
+  animation: templeRise 0.8s ease-out;
+  z-index: 10;
+}
+
+/* Golden glow animation */
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(45deg, var(--gold), var(--light-gold), var(--gold));
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0.3;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes templeRise {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GREEK FIRE COLUMNS - Sacred Eternal Flames
+   Realistic Ionic Columns with Fire Braziers
+   ═══════════════════════════════════════════════════════════════════ */
+
+.caryatid-left,
+.caryatid-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+.caryatid-left {
+  left: 5%;
+}
+
+.caryatid-right {
+  right: 5%;
+}
+
+/* Fire Brazier on Top */
+.caryatid-figure {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Fire Bowl/Brazier */
+.caryatid-figure::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 90px;
+  height: 40px;
+  background: linear-gradient(180deg, 
+    rgba(212, 175, 55, 0.9) 0%,
+    rgba(184, 134, 11, 0.8) 50%,
+    rgba(139, 90, 0, 0.7) 100%
+  );
+  border-radius: 50% 50% 45% 45% / 25% 25% 75% 75%;
+  box-shadow: 
+    inset 0 -10px 20px rgba(0, 0, 0, 0.5),
+    0 5px 15px rgba(212, 175, 55, 0.5);
+  z-index: 1;
+}
+
+/* Animated Fire Flame */
+.caryatid-figure::after {
+  content: '🔥';
+  position: absolute;
+  top: -20px;
+  font-size: 3.5rem;
+  animation: flameFlicker 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.9));
+  z-index: 2;
+}
+
+.caryatid-left .caryatid-figure::after {
+  animation-delay: 0s;
+}
+
+.caryatid-right .caryatid-figure::after {
+  animation-delay: 0.75s;
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 25px rgba(255, 140, 0, 0.9));
+  }
+  25% {
+    transform: translateY(-8px) scale(1.1) rotate(-3deg);
+    filter: drop-shadow(0 0 35px rgba(255, 165, 0, 1));
+  }
+  50% {
+    transform: translateY(-5px) scale(0.95) rotate(2deg);
+    filter: drop-shadow(0 0 20px rgba(255, 100, 0, 0.8));
+  }
+  75% {
+    transform: translateY(-10px) scale(1.05) rotate(3deg);
+    filter: drop-shadow(0 0 30px rgba(255, 120, 0, 0.95));
+  }
+}
+
+/* Column Shaft - Realistic Ionic Style */
+.column-shaft {
+  width: 60px;
+  height: 280px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #bdbdbd 0%,
+    #e8e8e8 15%,
+    #f5f5f5 30%,
+    #ffffff 50%,
+    #f5f5f5 70%,
+    #e8e8e8 85%,
+    #bdbdbd 100%
+  );
+  box-shadow: 
+    inset 6px 0 12px rgba(0, 0, 0, 0.2),
+    inset -6px 0 12px rgba(255, 255, 255, 0.3),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+}
+
+/* Fluting (vertical grooves) */
+.column-shaft::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 2px,
+    transparent 8px,
+    rgba(0, 0, 0, 0.15) 9px,
+    transparent 10px,
+    transparent 18px
+  );
+}
+
+/* Ionic Capital on Top */
+.column-shaft::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 35px;
+  background: linear-gradient(
+    180deg,
+    #f5f5f5 0%,
+    #e8e8e8 50%,
+    #d0d0d0 100%
+  );
+  border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+  box-shadow: 
+    0 -5px 15px rgba(212, 175, 55, 0.3),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+}
+
+/* Ionic Volutes (Scrolls) - Decorative Curls */
+.caryatid-left .column-shaft,
+.caryatid-right .column-shaft {
+  position: relative;
+}
+
+/* Left volute */
+.caryatid-left .column-shaft::before {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 2px,
+    transparent 8px
+  );
+}
+
+/* Base of Column */
+.column-base {
+  width: 80px;
+  height: 30px;
+  background: linear-gradient(
+    180deg,
+    #d0d0d0 0%,
+    #c0c0c0 50%,
+    #b0b0b0 100%
+  );
+  margin-top: -5px;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    inset 0 3px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.column-base::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 10px;
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 50%;
+  filter: blur(8px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   OMPHALOS HEADER - Sacred Navel Stone
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.omphalos-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.omphalos-stone {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: omphalosGlow 4s ease-in-out infinite;
+}
+
+.omphalos-icon {
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 3;
+  filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.9));
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+.omphalos-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  opacity: 0.4;
+  animation: ringExpand 4s ease-in-out infinite;
+}
+
+.ring-1 {
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+
+.ring-2 {
+  width: 90px;
+  height: 90px;
+  animation-delay: 1.3s;
+}
+
+.ring-3 {
+  width: 120px;
+  height: 120px;
+  animation-delay: 2.6s;
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes omphalosGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px rgba(244, 208, 63, 0.9));
+  }
+}
+
+/* Delphic Maxim */
+.delphic-maxim {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  letter-spacing: 0.1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   EPIGRAPHIC TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-card h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0 0 1rem;
+  opacity: 0.9;
+  font-family: 'EB Garamond', serif;
+}
+
+.subtitle::before {
+  content: '⚡ ';
+  color: var(--gold);
+}
+
+.subtitle::after {
+  content: ' ⚡';
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FORM STYLING - Sacred Input Fields
+   ═══════════════════════════════════════════════════════════════════ */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  min-width: unset;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.form-group::before {
+  content: '◆';
+  position: absolute;
+  left: -25px;
+  top: 35px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  animation: diamondPulse 2s ease-in-out infinite;
+}
+
+@keyframes diamondPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-left: 0.3rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05rem;
+}
+
+input {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--card-border);
+  background: rgba(26, 26, 46, 0.8);
+  color: #ffffff !important;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'EB Garamond', serif;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-style: italic;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(26, 26, 46, 0.95);
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 0 3px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SACRED THRESHOLD BUTTON
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-btn {
+  padding: 1.2rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--gold), var(--light-gold));
+  color: var(--dark-bg);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  font-family: 'Cinzel', serif;
+  box-shadow: 
+    0 8px 24px rgba(212, 175, 55, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.login-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.login-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.login-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 36px rgba(212, 175, 55, 0.6),
+    0 0 50px rgba(212, 175, 55, 0.5),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ORACLE FOOTER
+   ═══════════════════════════════════════════════════════════════════ */
+
+.login-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--card-border);
+  text-align: center;
+  position: relative;
+}
+
+.login-footer::before {
+  content: '◈◈◈';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(22, 33, 62, 0.95));
+  padding: 0 1rem;
+  color: var(--gold);
+  font-size: 0.8rem;
+  letter-spacing: 0.5rem;
+  animation: ornamentGlow 3s ease-in-out infinite;
+}
+
+@keyframes ornamentGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.footer-link {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0.8rem 0;
+  font-family: 'EB Garamond', serif;
+}
+
+.footer-link a {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.footer-link a:hover {
+  color: var(--light-gold);
+  border-bottom-color: var(--light-gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .login-card {
+    min-width: unset;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  /* Hide caryatids on mobile */
+  .caryatid-left,
+  .caryatid-right {
+    display: none;
+  }
+
+  .login-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .omphalos-stone {
+    width: 100px;
+    height: 100px;
+  }
+
+  .omphalos-icon {
+    font-size: 2.5rem;
+  }
+
+  .form-group::before {
+    display: none;
+  }
+
+  .greek-pattern-bg::before {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .login-container::before {
+    animation: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .caryatid-left {
+    left: 2%;
+  }
+  
+  .caryatid-right {
+    right: 2%;
+  }
+  
+  .caryatid-figure {
+    font-size: 3rem;
+  }
+  
+  .column-shaft {
+    width: 30px;
+    height: 120px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gold);
+}

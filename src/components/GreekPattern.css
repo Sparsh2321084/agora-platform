@@ -1,0 +1,273 @@
+/* ========================================
+   GREEK PATTERN DECORATIONS
+   Animated frieze borders and meander patterns
+   ======================================== */
+
+/* Greek Key Pattern - Animated Border */
+.greek-pattern-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.greek-pattern-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #d4af37 0px,
+    #d4af37 20px,
+    #f4d03f 20px,
+    #f4d03f 40px
+  );
+  background-size: 200% 100%;
+  animation: greekKeyScroll 3s linear infinite;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes greekKeyScroll {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Meander Pattern - Subtle Background */
+.greek-meander-bg {
+  position: relative;
+}
+
+.greek-meander-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(212, 175, 55, 0.03) 35px,
+      rgba(212, 175, 55, 0.03) 37px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 35px,
+      rgba(212, 175, 55, 0.03) 35px,
+      rgba(212, 175, 55, 0.03) 37px
+    );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.greek-meander-bg:hover::after {
+  opacity: 1;
+}
+
+/* Frieze Accent - Decorative Strip */
+.greek-frieze {
+  position: relative;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.greek-frieze::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #d4af37 20%,
+    #f4d03f 50%,
+    #d4af37 80%,
+    transparent 100%
+  );
+  animation: friezeShimmer 3s ease-in-out infinite;
+}
+
+@keyframes friezeShimmer {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 2px 16px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* Corner Ornament - Acanthus Leaf Style */
+.greek-corner-ornament {
+  position: relative;
+}
+
+.greek-corner-ornament::before,
+.greek-corner-ornament::after {
+  content: '◆';
+  position: absolute;
+  top: 0;
+  font-size: 1rem;
+  color: #d4af37;
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.3));
+}
+
+.greek-corner-ornament::before {
+  left: -30px;
+  transform: translateX(-10px) rotate(-45deg);
+}
+
+.greek-corner-ornament::after {
+  right: -30px;
+  transform: translateX(10px) rotate(45deg);
+}
+
+.greek-corner-ornament:hover::before {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+}
+
+.greek-corner-ornament:hover::after {
+  opacity: 1;
+  transform: translateX(0) rotate(0deg);
+}
+
+/* Laurel Wreath Border */
+.greek-laurel-border {
+  position: relative;
+  padding: 1rem;
+}
+
+.greek-laurel-border::before,
+.greek-laurel-border::after {
+  content: '🌿';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  opacity: 0.4;
+  filter: drop-shadow(0 2px 6px rgba(74, 124, 89, 0.2));
+  animation: laurelSway 3s ease-in-out infinite;
+}
+
+.greek-laurel-border::before {
+  left: -10px;
+}
+
+.greek-laurel-border::after {
+  right: -10px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+@keyframes laurelSway {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(5deg);
+  }
+}
+
+/* Bronze Accent Strip */
+.greek-bronze-strip {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.greek-bronze-strip::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #cd7f32 25%,
+    #e89552 50%,
+    #cd7f32 75%,
+    transparent
+  );
+  box-shadow: 0 2px 8px rgba(205, 127, 50, 0.3);
+  animation: bronzeGlow 2s ease-in-out infinite;
+}
+
+@keyframes bronzeGlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 2px 12px rgba(205, 127, 50, 0.5);
+  }
+}
+
+/* Utility Classes for Quick Application */
+.greek-hover-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.greek-hover-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.greek-hover-shimmer:hover::before {
+  left: 150%;
+}
+
+/* Responsive - Reduce effects on mobile */
+@media (max-width: 768px) {
+  .greek-corner-ornament::before,
+  .greek-corner-ornament::after {
+    display: none;
+  }
+
+  .greek-laurel-border::before,
+  .greek-laurel-border::after {
+    font-size: 1.2rem;
+  }
+
+  .greek-pattern-border::before {
+    height: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greek-pattern-border::before,
+  .greek-frieze::before,
+  .greek-bronze-strip::after,
+  .greek-laurel-border::before,
+  .greek-laurel-border::after {
+    animation: none;
+  }
+}

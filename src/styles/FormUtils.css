@@ -1,0 +1,28 @@
+/* CHARACTER COUNT UTILITY */
+.char-count {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #888;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.char-count[data-warning="true"] {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.char-count[data-danger="true"] {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Add to Dashboard, Discussion, Profile forms */
+.form-group {
+  position: relative;
+}
+
+.form-group .char-count {
+  margin-top: 0.25rem;
+}

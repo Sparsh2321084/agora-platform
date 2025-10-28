@@ -1,0 +1,237 @@
+/**
+ * Mobile Menu Component Styles
+ * Touch-optimized with 44px minimum touch targets
+ * Greek-themed dark design matching main theme
+ */
+
+/* Overlay - Darkens background when menu is open */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
+/* Drawer - Slides in from right */
+.mobile-menu-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 85vw);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Header */
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.25rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.mobile-menu-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+}
+
+.menu-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4af37;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.menu-greek {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.875rem;
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+/* Close Button - 44px minimum touch target */
+.mobile-menu-close {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  color: #d4af37;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+  transform: scale(1.05);
+}
+
+.mobile-menu-close:active {
+  transform: scale(0.95);
+}
+
+/* Divider */
+.mobile-menu-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+  margin: 0 1rem;
+}
+
+/* Menu List */
+.mobile-menu-list {
+  list-style: none;
+  padding: 1rem 0;
+  margin: 0;
+  flex: 1;
+}
+
+.mobile-menu-list li {
+  margin: 0.5rem 1rem;
+}
+
+.mobile-menu-list li.active {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 8px;
+}
+
+/* Menu Items - 44px minimum height for touch */
+.mobile-menu-item {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: #e8e8e8;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(212, 175, 55, 0.3);
+  color: #d4af37;
+  transform: translateX(-4px);
+}
+
+.mobile-menu-item:active {
+  transform: translateX(-4px) scale(0.98);
+}
+
+.menu-item-icon {
+  font-size: 1.5rem;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item-label {
+  flex: 1;
+  letter-spacing: 1px;
+}
+
+.menu-item-active {
+  color: #d4af37;
+  font-size: 0.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Footer Quote */
+.mobile-menu-footer {
+  padding: 1.5rem 1.25rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.menu-quote {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #a8a8a8;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menu-quote-greek {
+  font-size: 0.875rem;
+  color: #d4af37;
+}
+
+/* Scrollbar styling */
+.mobile-menu-drawer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-menu-drawer::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu-drawer::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
+}
+
+.mobile-menu-drawer::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Accessibility: Focus visible */
+.mobile-menu-close:focus-visible,
+.mobile-menu-item:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-drawer,
+  .mobile-menu-overlay,
+  .mobile-menu-item {
+    transition: none !important;
+    animation: none !important;
+  }
+}

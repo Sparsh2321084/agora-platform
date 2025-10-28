@@ -1,0 +1,37 @@
+<!-- Greek Architectural SVG Assets -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  
+  <!-- Greek Column -->
+  <symbol id="greek-column" viewBox="0 0 100 400">
+    <rect x="30" y="30" width="40" height="10" fill="#d4af37"/>
+    <rect x="25" y="40" width="50" height="15" fill="#e8d5a8"/>
+    <rect x="35" y="55" width="30" height="300" fill="#f5f0e8">
+      <animate attributeName="opacity" values="1;0.9;1" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="30" y="355" width="40" height="15" fill="#e8d5a8"/>
+    <rect x="25" y="370" width="50" height="20" fill="#d4af37"/>
+  </symbol>
+
+  <!-- Greek Key Pattern -->
+  <symbol id="greek-key" viewBox="0 0 100 20">
+    <path d="M 0,10 L 10,10 L 10,0 L 20,0 L 20,20 L 30,20 L 30,10 L 40,10 L 40,0 L 50,0 L 50,20 L 60,20 L 60,10 L 70,10 L 70,0 L 80,0 L 80,20 L 90,20 L 90,10 L 100,10" 
+          stroke="#d4af37" stroke-width="2" fill="none"/>
+  </symbol>
+
+  <!-- Laurel Wreath -->
+  <symbol id="laurel-wreath" viewBox="0 0 200 200">
+    <ellipse cx="100" cy="100" rx="80" ry="90" fill="none" stroke="#4a7c59" stroke-width="3"/>
+    <path d="M 40,80 Q 35,85 40,90 M 45,70 Q 40,75 45,80 M 50,60 Q 45,65 50,70" 
+          stroke="#4a7c59" stroke-width="2" fill="none"/>
+    <path d="M 160,80 Q 165,85 160,90 M 155,70 Q 160,75 155,80 M 150,60 Q 155,65 150,70" 
+          stroke="#4a7c59" stroke-width="2" fill="none"/>
+  </symbol>
+
+  <!-- Amphitheater Arc -->
+  <symbol id="amphitheater-arc" viewBox="0 0 400 200">
+    <path d="M 50,180 Q 200,20 350,180" fill="none" stroke="#d4af37" stroke-width="2"/>
+    <path d="M 70,170 Q 200,40 330,170" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.5"/>
+    <path d="M 90,160 Q 200,60 310,160" fill="none" stroke="#d4af37" stroke-width="1" opacity="0.3"/>
+  </symbol>
+
+</svg>

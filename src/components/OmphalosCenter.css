@@ -1,0 +1,300 @@
+/**
+ * Omphalos Center Component Styles
+ * Sacred navel stone of Delphi - center of the world and wisdom
+ */
+
+.omphalos-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding: var(--space-3xl) 0;
+  perspective: 1000px;
+}
+
+/* Main Stone */
+.omphalos-stone {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--olympic-gold) 0%,
+    var(--bronze-bright) 40%,
+    var(--bronze-patina) 70%,
+    var(--earth-brown) 100%
+  );
+  box-shadow: 
+    var(--shadow-xl),
+    inset 0 -20px 40px rgba(0, 0, 0, 0.3),
+    inset 0 20px 40px rgba(255, 255, 255, 0.2),
+    0 0 60px rgba(212, 175, 55, 0.4);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-natural);
+  animation: breathe 4s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) rotateX(0deg);
+    box-shadow: 
+      var(--shadow-xl),
+      inset 0 -20px 40px rgba(0, 0, 0, 0.3),
+      inset 0 20px 40px rgba(255, 255, 255, 0.2),
+      0 0 60px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    transform: scale(1.05) rotateX(5deg);
+    box-shadow: 
+      var(--shadow-xl),
+      inset 0 -20px 40px rgba(0, 0, 0, 0.3),
+      inset 0 20px 40px rgba(255, 255, 255, 0.2),
+      0 0 80px rgba(212, 175, 55, 0.6);
+  }
+}
+
+.omphalos-stone:hover {
+  transform: scale(1.1) rotateY(5deg);
+  box-shadow: 
+    var(--shadow-xl),
+    inset 0 -20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 20px 40px rgba(255, 255, 255, 0.3),
+    0 0 100px rgba(212, 175, 55, 0.8);
+}
+
+.omphalos-pulsing {
+  animation: pulse-activation 1s ease-out;
+}
+
+@keyframes pulse-activation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 
+      var(--shadow-xl),
+      0 0 150px rgba(212, 175, 55, 1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Inner Structure */
+.omphalos-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Center Dot (Sacred Point) */
+.omphalos-center-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--egyptian-blue);
+  box-shadow: 
+    0 0 20px var(--egyptian-blue),
+    inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  z-index: 3;
+  animation: center-glow 3s ease-in-out infinite;
+}
+
+@keyframes center-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px var(--egyptian-blue),
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px var(--egyptian-blue),
+      inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Concentric Bands (Carved Relief) */
+.omphalos-bands {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.band {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+.band-1 {
+  inset: 20px;
+  animation: band-rotate-1 20s linear infinite;
+}
+
+.band-2 {
+  inset: 50px;
+  animation: band-rotate-2 15s linear infinite reverse;
+}
+
+.band-3 {
+  inset: 80px;
+  animation: band-rotate-3 25s linear infinite;
+}
+
+@keyframes band-rotate-1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes band-rotate-2 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes band-rotate-3 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Content Overlay */
+.omphalos-content {
+  z-index: 2;
+  text-align: center;
+  padding: var(--space-lg);
+  pointer-events: none;
+}
+
+.omphalos-message {
+  font-family: var(--font-epigraphic);
+  font-size: var(--text-xl);
+  color: var(--parian-marble);
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(212, 175, 55, 0.5);
+  letter-spacing: var(--tracking-widest);
+  margin-bottom: var(--space-sm);
+  animation: text-glow 3s ease-in-out infinite;
+}
+
+.omphalos-subtitle {
+  font-family: var(--font-classical);
+  font-size: var(--text-lg);
+  color: var(--limestone);
+  font-style: italic;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes text-glow {
+  0%, 100% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(212, 175, 55, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.8),
+      0 0 30px rgba(212, 175, 55, 0.8);
+  }
+}
+
+/* Delphic Maxims Display */
+.delphic-maxims {
+  width: 100%;
+  max-width: 600px;
+  padding: var(--space-xl);
+  background: var(--gradient-temple);
+  border: 2px solid var(--marble-vein);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.maxim-container {
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.maxim-greek {
+  font-family: var(--font-epigraphic);
+  font-size: var(--text-2xl);
+  color: var(--egyptian-blue);
+  letter-spacing: var(--tracking-wider);
+  animation: fade-in-maxim 1s ease-out;
+}
+
+.maxim-english {
+  font-family: var(--font-classical);
+  font-size: var(--text-lg);
+  color: var(--earth-brown);
+  font-style: italic;
+  animation: fade-in-maxim 1s ease-out 0.2s backwards;
+}
+
+@keyframes fade-in-maxim {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Active State */
+.omphalos-active .omphalos-stone {
+  animation: enlightenment-pulse 2s ease-in-out infinite;
+}
+
+@keyframes enlightenment-pulse {
+  0%, 100% {
+    box-shadow: 
+      var(--shadow-xl),
+      inset 0 -20px 40px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(16, 52, 166, 0.6);
+  }
+  50% {
+    box-shadow: 
+      var(--shadow-xl),
+      inset 0 -20px 40px rgba(0, 0, 0, 0.3),
+      0 0 120px rgba(16, 52, 166, 1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .omphalos-stone {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .omphalos-message {
+    font-size: var(--text-lg);
+  }
+  
+  .omphalos-subtitle {
+    font-size: var(--text-base);
+  }
+  
+  .maxim-greek {
+    font-size: var(--text-xl);
+  }
+  
+  .maxim-english {
+    font-size: var(--text-base);
+  }
+}

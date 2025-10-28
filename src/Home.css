@@ -1,0 +1,1426 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:wght@300;400;600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════
+   AGORA HOMEPAGE - SANCTUARY OF THOUGHT & DIALOGUE
+   "Sculpt your soul through dialogue"
+   Where ideas are carved like marble, beliefs evolve like myths
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Golden Ratio φ = 1.618 */
+  --phi: 1.618;
+  --phi-squared: 2.618;
+  
+  /* Typography Hierarchy (Golden Ratio) */
+  --text-h1: 2.618rem;
+  --text-h2: 1.618rem;
+  --text-h3: 1.2rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  
+  /* High Contrast Color Palette */
+  --egyptian-blue: #1034A6;
+  --ivory: #FFF4E6;
+  --olympic-gold: #D4AF37;
+  --dark-brown: #2C1810;
+  --cinnabar: #CD5C5C;
+  --azurite: #007FFF;
+  --ochre: #CC7722;
+  --tyrian-purple: #66023C;
+  
+  /* Spacing (Golden Ratio based) */
+  --space-xs: 0.382rem;
+  --space-sm: 0.618rem;
+  --space-md: 1rem;
+  --space-lg: 1.618rem;
+  --space-xl: 2.618rem;
+  --space-xxl: 4.236rem;
+  
+  /* Architectural Elements */
+  --temple-border: 3px solid var(--olympic-gold);
+  --marble-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --divine-glow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTAINER & BASE LAYOUT
+   ═══════════════════════════════════════════════════════════════════ */
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    180deg,
+    var(--tyrian-purple) 0%,
+    var(--egyptian-blue) 30%,
+    var(--ivory) 100%
+  );
+  font-family: 'EB Garamond', 'Garamond', serif;
+  color: var(--dark-brown);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container-golden {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.grid-golden {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: var(--space-xl);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ENLIGHTENMENT PROGRESS BAR - Allegory of the Cave
+   ═══════════════════════════════════════════════════════════════════ */
+
+.enlightenment-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--dark-brown) 0%,
+    var(--egyptian-blue) 40%,
+    var(--olympic-gold) 70%,
+    var(--ivory) 100%
+  );
+  z-index: 1000;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.6);
+  will-change: transform;
+}
+
+.torch-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  filter: drop-shadow(0 0 15px var(--olympic-gold));
+}
+
+@keyframes torchFlicker {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px var(--olympic-gold));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px var(--olympic-gold));
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION - Temple Architrave
+   ═══════════════════════════════════════════════════════════════════ */
+
+.temple-nav {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(44, 24, 16, 0.97) 0%,
+    rgba(16, 52, 166, 0.95) 50%,
+    rgba(44, 24, 16, 0.97) 100%
+  );
+  backdrop-filter: blur(12px);
+  border-bottom: var(--temple-border);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(212, 175, 55, 0.3);
+  z-index: 999;
+  padding: var(--space-md) 0;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-left {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h2);
+  font-weight: 900;
+  color: var(--olympic-gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+  letter-spacing: 4px;
+  cursor: default;
+  transition: all 0.3s ease;
+  animation: logoGlow 4s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+  50% { text-shadow: 0 0 35px rgba(212, 175, 55, 1); }
+}
+
+.temple-icon {
+  font-size: 1.8rem;
+  display: inline-block;
+  animation: templeFloat 3s ease-in-out infinite;
+}
+
+@keyframes templeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.nav-greek {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--text-h3);
+  color: var(--ivory);
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.nav-center {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--ivory);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  border-radius: 50%;
+}
+
+.nav-link:hover::before {
+  width: 250px;
+  height: 250px;
+}
+
+.nav-link:hover {
+  color: var(--olympic-gold);
+  border-color: var(--olympic-gold);
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.nav-right {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.nav-btn {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-body);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 6px;
+  cursor: default;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid var(--olympic-gold);
+}
+
+.nav-btn.secondary {
+  background: transparent;
+  color: var(--ivory);
+}
+
+.nav-btn.secondary:hover {
+  background: rgba(212, 175, 55, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn.primary {
+  background: linear-gradient(135deg, var(--olympic-gold) 0%, var(--ochre) 100%);
+  color: var(--dark-brown);
+}
+
+.nav-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO SECTION - Stylized Amphitheater
+   ═══════════════════════════════════════════════════════════════════ */
+
+.hero-parthenon {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xxl) 0;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+.column-shadow {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--olympic-gold) 50%,
+    transparent 100%
+  );
+  animation: columnAppear 8s ease-in-out infinite;
+}
+
+.column-1 { left: 10%; animation-delay: 0s; }
+.column-2 { left: 35%; animation-delay: 2s; }
+.column-3 { left: 60%; animation-delay: 4s; }
+.column-4 { left: 85%; animation-delay: 6s; }
+
+@keyframes columnAppear {
+  0%, 100% { opacity: 0.1; transform: scaleY(0.95); }
+  50% { opacity: 0.3; transform: scaleY(1); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: rgba(212, 175, 55, 0.25);
+  border: 2px solid var(--olympic-gold);
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--olympic-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+}
+
+.badge-separator {
+  color: var(--olympic-gold);
+  opacity: 0.5;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--ivory);
+  margin: 0 0 var(--space-md) 0;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(212, 175, 55, 0.6);
+  letter-spacing: 8px;
+  line-height: 1.1;
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(212, 175, 55, 0.6);
+  }
+  50% { 
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 0 60px rgba(212, 175, 55, 0.9);
+  }
+}
+
+.hero-subtitle {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-h2);
+  font-weight: 400;
+  color: var(--olympic-gold);
+  margin-top: var(--space-md);
+  letter-spacing: 3px;
+  font-style: italic;
+}
+
+.hero-tagline {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-h2);
+  font-weight: 600;
+  color: var(--ivory);
+  margin: var(--space-xl) 0;
+  font-style: italic;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+.hero-tagline::before {
+  content: '"';
+  color: var(--olympic-gold);
+  font-size: 2em;
+  line-height: 0;
+  margin-right: 0.1em;
+}
+
+.hero-tagline::after {
+  content: '"';
+  color: var(--olympic-gold);
+  font-size: 2em;
+  line-height: 0;
+  margin-left: 0.1em;
+}
+
+.hero-description {
+  max-width: 700px;
+  margin: 0 auto var(--space-xl) auto;
+}
+
+.hero-description p {
+  font-size: var(--text-h3);
+  line-height: 1.8;
+  color: rgba(255, 244, 230, 0.95);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-xxl);
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h3);
+  font-weight: 700;
+  padding: var(--space-lg) var(--space-xl);
+  border-radius: 8px;
+  cursor: default;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  box-shadow: var(--marble-shadow);
+}
+
+.btn-icon {
+  font-size: 1.8rem;
+}
+
+.cta-btn.primary-gold {
+  background: linear-gradient(135deg, var(--olympic-gold) 0%, var(--ochre) 100%);
+  color: var(--dark-brown);
+  border: 3px solid var(--olympic-gold);
+}
+
+.cta-btn.primary-gold:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(212, 175, 55, 0.7);
+}
+
+.cta-btn.secondary-marble {
+  background: linear-gradient(135deg, rgba(255, 244, 230, 0.95) 0%, rgba(255, 244, 230, 0.85) 100%);
+  color: var(--egyptian-blue);
+  border: 3px solid var(--ivory);
+}
+
+.cta-btn.secondary-marble:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 244, 230, 0.6);
+}
+
+/* Meander Pattern Divider */
+.section-divider {
+  height: 16px;
+  margin: var(--space-xxl) 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--olympic-gold) 0px,
+    var(--olympic-gold) 24px,
+    transparent 24px,
+    transparent 28px,
+    var(--olympic-gold) 28px,
+    var(--olympic-gold) 32px,
+    transparent 32px,
+    transparent 36px
+  );
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PANATHENAIC PROCESSION FRIEZE - Glowing Constellations
+   ═══════════════════════════════════════════════════════════════════ */
+
+.frieze-section {
+  padding: var(--space-xxl) 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(16, 52, 166, 0.1) 50%,
+    transparent 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.frieze-section::before,
+.frieze-section::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(212, 175, 55, 0.1) 50%,
+    transparent 100%
+  );
+  top: 0;
+  animation: friezeGlow 8s ease-in-out infinite;
+}
+
+.frieze-section::before { left: -200px; }
+.frieze-section::after { right: -200px; animation-delay: 4s; }
+
+@keyframes friezeGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ORACLE SECTION - Rotating Philosophical Wisdom
+   ═══════════════════════════════════════════════════════════════════ */
+
+.oracle-section {
+  padding: var(--space-xxl) 0;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 24, 16, 0.4) 0%,
+    rgba(16, 52, 166, 0.3) 100%
+  );
+  position: relative;
+}
+
+.oracle-wisdom {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-xxl);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 244, 230, 0.15) 0%,
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  border: var(--temple-border);
+  border-radius: 12px;
+  box-shadow: var(--marble-shadow), var(--divine-glow);
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+.oracle-wisdom::before {
+  content: '🔮';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  animation: oracleFloat 4s ease-in-out infinite;
+}
+
+@keyframes oracleFloat {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0) scale(1);
+    filter: drop-shadow(0 0 20px var(--olympic-gold));
+  }
+  50% { 
+    transform: translateX(-50%) translateY(-10px) scale(1.1);
+    filter: drop-shadow(0 0 35px var(--olympic-gold));
+  }
+}
+
+.quote-philosophical {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.quote-content {
+  animation: quoteFade 1s ease-in;
+  margin-bottom: 2rem;
+}
+
+@keyframes quoteFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quote-text {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-h2);
+  font-weight: 600;
+  color: var(--ivory);
+  line-height: 1.8;
+  margin: 0 0 var(--space-lg) 0;
+  font-style: italic;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.quote-greek {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--text-h3);
+  color: var(--olympic-gold);
+  margin: var(--space-md) 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.quote-author {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--olympic-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: var(--space-lg);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   STOA SECTION - Featured Philosophical Topics (Belief Mosaic)
+   ═══════════════════════════════════════════════════════════════════ */
+
+.stoa-section {
+  padding: var(--space-xxl) 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 244, 230, 0.95) 0%,
+    rgba(255, 244, 230, 0.98) 100%
+  );
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h1);
+  font-weight: 900;
+  color: var(--egyptian-blue);
+  margin: 0 0 var(--space-md) 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.section-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-h3);
+  color: var(--dark-brown);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Topic Cards - Ancient Tesserae Style */
+.topics-grid {
+  margin-top: var(--space-xxl);
+}
+
+.topic-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(212, 175, 55, 0.08) 100%
+  );
+  border: 3px solid var(--olympic-gold);
+  border-radius: 12px;
+  padding: var(--space-xl);
+  box-shadow: var(--marble-shadow);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.topic-card:hover::before {
+  left: 100%;
+}
+
+.topic-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(212, 175, 55, 0.4);
+  border-color: var(--ochre);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.card-body {
+  margin-bottom: var(--space-lg);
+}
+
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--egyptian-blue);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.4;
+}
+
+.card-excerpt {
+  font-size: var(--text-body);
+  color: var(--dark-brown);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-lg);
+  border-top: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.card-meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--text-small);
+  color: var(--dark-brown);
+  opacity: 0.7;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.card-btn {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-small);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, var(--olympic-gold) 0%, var(--ochre) 100%);
+  color: var(--dark-brown);
+  border: 2px solid var(--olympic-gold);
+  border-radius: 6px;
+  cursor: default;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-btn:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PHILOSOPHY SECTION - Platform Description with Virtue Grid
+   ═══════════════════════════════════════════════════════════════════ */
+
+.philosophy-section {
+  padding: var(--space-xxl) 0;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 52, 166, 0.15) 0%,
+    rgba(102, 2, 60, 0.1) 100%
+  );
+  position: relative;
+}
+
+.philosophy-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.philosophy-content {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 244, 230, 0.95) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  border: var(--temple-border);
+  border-radius: 12px;
+  padding: var(--space-xxl);
+  box-shadow: var(--marble-shadow);
+}
+
+.philosophy-content h2 {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h1);
+  font-weight: 900;
+  color: var(--egyptian-blue);
+  margin: 0 0 var(--space-xl) 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.philosophy-text {
+  font-size: var(--text-h3);
+  line-height: 1.9;
+  color: var(--dark-brown);
+  margin-bottom: var(--space-xl);
+}
+
+.philosophy-text p {
+  margin-bottom: var(--space-lg);
+}
+
+.philosophy-text strong {
+  color: var(--egyptian-blue);
+  font-weight: 700;
+}
+
+.philosophy-text em {
+  color: var(--ochre);
+  font-style: italic;
+}
+
+/* Virtues Grid - Circle of Virtues */
+.virtues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xxl);
+}
+
+.virtue-item {
+  text-align: center;
+  padding: var(--space-xl);
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.12) 0%,
+    rgba(255, 244, 230, 0.95) 100%
+  );
+  border: 2px solid var(--olympic-gold);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.virtue-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 
+    0 12px 28px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.4);
+  border-color: var(--ochre);
+}
+
+.virtue-item h4 {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--egyptian-blue);
+  margin: var(--space-md) 0 var(--space-sm) 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.virtue-item p {
+  font-size: var(--text-body);
+  color: var(--dark-brown);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER - Temple Base with Meander Pattern
+   ═══════════════════════════════════════════════════════════════════ */
+
+.temple-footer {
+  background: linear-gradient(
+    180deg,
+    var(--dark-brown) 0%,
+    var(--egyptian-blue) 100%
+  );
+  color: var(--ivory);
+  padding: var(--space-xxl) 0 var(--space-xl) 0;
+  position: relative;
+}
+
+.footer-meander {
+  height: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--olympic-gold) 0px,
+    var(--olympic-gold) 24px,
+    transparent 24px,
+    transparent 28px,
+    var(--olympic-gold) 28px,
+    var(--olympic-gold) 32px,
+    transparent 32px,
+    transparent 36px
+  );
+  margin-bottom: var(--space-xl);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-main {
+  margin-bottom: var(--space-xl);
+}
+
+.footer-logo {
+  margin-bottom: var(--space-lg);
+}
+
+.footer-logo .text-epigraphic {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h1);
+  font-weight: 900;
+  color: var(--olympic-gold);
+  letter-spacing: 6px;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.footer-logo p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-body);
+  color: rgba(255, 244, 230, 0.7);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-body);
+}
+
+.footer-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+}
+
+.footer-links a:hover {
+  color: var(--olympic-gold);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.footer-links span {
+  color: var(--olympic-gold);
+  opacity: 0.5;
+}
+
+.footer-bottom {
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  margin-top: var(--space-lg);
+}
+
+.footer-bottom p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-small);
+  color: rgba(255, 244, 230, 0.6);
+}
+
+/* Typography Helper Classes */
+.text-epigraphic {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE - Adaptive Journey
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --text-h1: 2rem;
+    --text-h2: 1.4rem;
+    --text-h3: 1.1rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+  }
+  
+  .container-golden {
+    padding: 0 var(--space-md);
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .nav-center {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+  
+  .nav-link {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-small);
+  }
+  
+  .nav-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-parthenon {
+    min-height: 80vh;
+    padding: var(--space-xl) 0;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: 4px;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-h3);
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  
+  .column-shadow,
+  .hero-background {
+    display: none;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .virtues-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-footer {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+  
+  .card-btn {
+    width: 100%;
+  }
+  
+  * {
+    animation-duration: 0s !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-h1: 1.8rem;
+    --text-h2: 1.3rem;
+    --text-h3: 1rem;
+  }
+  
+  .nav-logo {
+    font-size: var(--text-h3);
+    letter-spacing: 2px;
+  }
+  
+  .temple-icon {
+    font-size: 1.4rem;
+  }
+  
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: var(--space-xs) var(--space-md);
+  }
+  
+  .btn-icon {
+    font-size: 1.4rem;
+  }
+  
+  .oracle-wisdom {
+    padding: var(--space-lg);
+  }
+  
+  .oracle-wisdom::before {
+    font-size: 2.5rem;
+    top: -20px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+  }
+  
+  .footer-links span {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   UTILITIES & SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-brown);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--olympic-gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ochre);
+}
+
+.footer-logo {
+  margin-bottom: var(--space-lg);
+}
+
+.footer-logo .text-epigraphic {
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-h1);
+  font-weight: 900;
+  color: var(--olympic-gold);
+  letter-spacing: 6px;
+  text-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+}
+
+.footer-logo p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-body);
+  color: rgba(255, 244, 230, 0.7);
+  margin-top: var(--space-sm);
+  font-style: italic;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  font-family: 'Cinzel', serif;
+  font-size: var(--text-body);
+}
+
+.footer-links a {
+  color: var(--ivory);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+}
+
+.footer-links a:hover {
+  color: var(--olympic-gold);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.footer-links span {
+  color: var(--olympic-gold);
+  opacity: 0.5;
+}
+
+.footer-bottom {
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  margin-top: var(--space-lg);
+}
+
+.footer-bottom p {
+  font-family: 'EB Garamond', serif;
+  font-size: var(--text-small);
+  color: rgba(255, 244, 230, 0.6);
+}
+
+/* Typography Helper Classes */
+.text-epigraphic {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE - Adaptive Journey
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  :root {
+    --text-h1: 2rem;
+    --text-h2: 1.4rem;
+    --text-h3: 1.1rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+  }
+  
+  .container-golden {
+    padding: 0 var(--space-md);
+  }
+  
+  .nav-content {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  
+  .nav-center {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+  
+  .nav-link {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-small);
+  }
+  
+  .nav-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .hero-parthenon {
+    min-height: 80vh;
+    padding: var(--space-xl) 0;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: 4px;
+  }
+  
+  .hero-subtitle {
+    font-size: var(--text-h3);
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+  
+  .column-shadow,
+  .hero-background {
+    display: none;
+  }
+  
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .virtues-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card-footer {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+  
+  .card-btn {
+    width: 100%;
+  }
+  
+  * {
+    animation-duration: 0s !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-h1: 1.8rem;
+    --text-h2: 1.3rem;
+    --text-h3: 1rem;
+  }
+  
+  .nav-logo {
+    font-size: var(--text-h3);
+    letter-spacing: 2px;
+  }
+  
+  .temple-icon {
+    font-size: 1.4rem;
+  }
+  
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: var(--space-xs) var(--space-md);
+  }
+  
+  .btn-icon {
+    font-size: 1.4rem;
+  }
+  
+  .oracle-wisdom {
+    padding: var(--space-lg);
+  }
+  
+  .oracle-wisdom::before {
+    font-size: 2.5rem;
+    top: -20px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+  }
+  
+  .footer-links span {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   UTILITIES & SCROLLBAR
+   ═══════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-brown);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--olympic-gold);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ochre);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE ENHANCEMENTS - Greek Theme Touch Support
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .nav-center {
+    display: none !important;
+  }
+  
+  .nav-right {
+    display: none !important;
+  }
+  
+  .nav-logo {
+    font-size: 1.4rem !important;
+  }
+  
+  .cta-btn {
+    min-height: 44px;
+  }
+}

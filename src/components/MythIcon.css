@@ -1,0 +1,218 @@
+/**
+ * Myth Icon Component Styles
+ * Mythological deity and symbol representations
+ */
+
+.myth-icon-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  transition: all var(--duration-normal) var(--ease-natural);
+}
+
+.myth-clickable {
+  cursor: pointer;
+}
+
+.myth-clickable:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Icon Circle */
+.myth-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-natural);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.myth-icon-circle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+}
+
+.myth-symbol {
+  font-size: inherit;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  z-index: 1;
+  transition: transform var(--duration-normal);
+}
+
+.myth-icon-wrapper:hover .myth-symbol {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Sizes */
+.myth-icon-small .myth-icon-circle {
+  width: 40px;
+  height: 40px;
+}
+
+.myth-icon-small .myth-symbol {
+  font-size: var(--text-lg);
+}
+
+.myth-icon-medium .myth-icon-circle {
+  width: 60px;
+  height: 60px;
+}
+
+.myth-icon-medium .myth-symbol {
+  font-size: var(--text-2xl);
+}
+
+.myth-icon-large .myth-icon-circle {
+  width: 80px;
+  height: 80px;
+}
+
+.myth-icon-large .myth-symbol {
+  font-size: var(--text-3xl);
+}
+
+.myth-icon-xlarge .myth-icon-circle {
+  width: 120px;
+  height: 120px;
+}
+
+.myth-icon-xlarge .myth-symbol {
+  font-size: var(--text-5xl);
+}
+
+/* Labels */
+.myth-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+
+.myth-name {
+  font-family: var(--font-epigraphic);
+  font-size: var(--text-sm);
+  color: var(--shadow-black);
+  letter-spacing: var(--tracking-wider);
+  font-weight: 700;
+}
+
+.myth-virtue {
+  font-family: var(--font-classical);
+  font-size: var(--text-xs);
+  color: var(--earth-brown);
+  font-style: italic;
+}
+
+/* Animation States */
+.myth-animated .myth-icon-circle {
+  animation: divine-pulse 3s ease-in-out infinite;
+}
+
+@keyframes divine-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
+
+.myth-animated:hover .myth-icon-circle {
+  animation: divine-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes divine-glow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px currentColor,
+      inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 8px 24px currentColor,
+      0 0 40px currentColor,
+      inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Hover Effects */
+.myth-clickable:hover .myth-icon-circle {
+  border-color: var(--olympic-gold);
+  transform: scale(1.1);
+}
+
+.myth-clickable:active .myth-icon-circle {
+  transform: scale(0.95);
+}
+
+/* Special Effects for Specific Icons */
+.myth-icon-wrapper[title*="Apollo"] .myth-icon-circle {
+  box-shadow: 
+    0 4px 12px var(--olympic-gold),
+    0 0 30px var(--saffron),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.myth-icon-wrapper[title*="Athena"] .myth-symbol {
+  animation: owl-blink 4s ease-in-out infinite;
+}
+
+@keyframes owl-blink {
+  0%, 90%, 92%, 94%, 100% {
+    opacity: 1;
+  }
+  91%, 93% {
+    opacity: 0.3;
+  }
+}
+
+.myth-icon-wrapper[title*="Hermes"] .myth-symbol {
+  animation: lightning-flash 2s ease-in-out infinite;
+}
+
+@keyframes lightning-flash {
+  0%, 100% {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px var(--azurite)) brightness(1.3);
+  }
+}
+
+.myth-icon-wrapper[title*="Torch"] .myth-symbol {
+  animation: torch-flicker 1s ease-in-out infinite;
+}
+
+@keyframes torch-flicker {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px var(--saffron));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px var(--saffron)) brightness(1.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .myth-icon-xlarge .myth-icon-circle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .myth-icon-xlarge .myth-symbol {
+    font-size: var(--text-4xl);
+  }
+}

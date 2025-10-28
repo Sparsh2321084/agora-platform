@@ -1,0 +1,261 @@
+/**
+ * Temple Column Component Styles
+ * Classical Greek architectural orders: Doric, Ionic, Corinthian
+ */
+
+.temple-column {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-normal) var(--ease-natural);
+  overflow: hidden;
+}
+
+.temple-column.clickable {
+  cursor: pointer;
+}
+
+.temple-column.clickable:hover {
+  transform: translateY(-4px);
+}
+
+/* Capital (Top ornament) */
+.column-capital {
+  padding: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.capital-icon {
+  font-size: var(--text-4xl);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform var(--duration-normal);
+}
+
+.temple-column:hover .capital-icon {
+  transform: scale(1.1) translateY(-4px);
+}
+
+/* Architrave (Title beam) */
+.column-architrave {
+  padding: var(--space-md) var(--space-lg);
+  text-align: center;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+}
+
+.architrave-text {
+  font-size: var(--text-lg);
+  margin: 0;
+}
+
+/* Shaft (Main content area) */
+.column-shaft {
+  flex: 1;
+  padding: var(--space-xl);
+  position: relative;
+}
+
+.shaft-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Base (Bottom platform) */
+.column-base {
+  height: var(--base-height);
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DORIC ORDER - Simplicity, Strength, Foundation
+   ═══════════════════════════════════════════════════════════════ */
+
+.column-doric {
+  background: var(--doric-primary);
+  border: var(--border-thick) solid var(--doric-accent);
+  box-shadow: var(--doric-shadow);
+}
+
+.column-doric .column-capital {
+  background: linear-gradient(180deg, var(--ochre-red) 0%, transparent 100%);
+}
+
+.column-doric .column-capital::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ochre-red) 0px,
+    var(--ochre-red) 15px,
+    transparent 15px,
+    transparent 30px
+  );
+}
+
+.column-doric .architrave-text {
+  color: var(--shadow-black);
+}
+
+.column-doric .column-shaft {
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 30px,
+    rgba(0, 0, 0, 0.02) 30px,
+    rgba(0, 0, 0, 0.02) 31px
+  );
+}
+
+.column-doric:hover {
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(204, 85, 0, 0.3);
+  border-color: var(--bronze-bright);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   IONIC ORDER - Elegance, Intellect, Refinement
+   ═══════════════════════════════════════════════════════════════ */
+
+.column-ionic {
+  background: linear-gradient(135deg, var(--parian-marble) 0%, rgba(0, 127, 255, 0.05) 50%, var(--parian-marble) 100%);
+  border: var(--border-medium) solid var(--ionic-accent);
+  box-shadow: var(--ionic-shadow);
+}
+
+.column-ionic .column-capital {
+  background: radial-gradient(circle, var(--ionic-primary) 0%, transparent 70%);
+  position: relative;
+}
+
+.column-ionic .column-capital::before,
+.column-ionic .column-capital::after {
+  content: '🌀';
+  position: absolute;
+  top: 50%;
+  font-size: var(--text-2xl);
+  opacity: 0.5;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.column-ionic .column-capital::before {
+  left: var(--space-lg);
+}
+
+.column-ionic .column-capital::after {
+  right: var(--space-lg);
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.column-ionic .architrave-text {
+  color: var(--ionic-primary);
+}
+
+.column-ionic .column-shaft {
+  background-image: 
+    linear-gradient(90deg, transparent 49%, var(--ionic-accent) 49%, var(--ionic-accent) 51%, transparent 51%);
+  background-size: 100% 40px;
+}
+
+.column-ionic:hover {
+  box-shadow: var(--shadow-lg), var(--glow-blue);
+  transform: translateY(-4px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CORINTHIAN ORDER - Luxury, Detail, Celebration
+   ═══════════════════════════════════════════════════════════════ */
+
+.column-corinthian {
+  background: linear-gradient(135deg, var(--corinthian-primary) 0%, var(--parian-marble) 50%, var(--corinthian-primary) 100%);
+  border: var(--border-relief) solid var(--corinthian-accent);
+  box-shadow: var(--corinthian-shadow);
+}
+
+.column-corinthian .column-capital {
+  background: radial-gradient(circle, var(--olympic-gold) 0%, transparent 60%);
+  padding: var(--space-xl);
+  position: relative;
+  overflow: visible;
+}
+
+.column-corinthian .column-capital::before,
+.column-corinthian .column-capital::after {
+  content: '🌿';
+  position: absolute;
+  top: -10px;
+  font-size: var(--text-3xl);
+  animation: leaf-sway 3s ease-in-out infinite;
+}
+
+.column-corinthian .column-capital::before {
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.column-corinthian .column-capital::after {
+  right: 10%;
+  transform: scaleX(-1);
+  animation-delay: 1.5s;
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50% { transform: rotate(5deg) translateY(-3px); }
+}
+
+.column-corinthian .architrave-text {
+  color: var(--corinthian-primary);
+  background: linear-gradient(90deg, var(--olympic-gold), var(--corinthian-primary), var(--olympic-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.column-corinthian .column-shaft {
+  background-image: 
+    radial-gradient(circle at 20% 30%, var(--olympic-gold) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, var(--olympic-gold) 0%, transparent 50%);
+  background-size: 200px 200px;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+.column-corinthian:hover {
+  box-shadow: var(--shadow-xl), var(--glow-gold);
+  border-color: var(--olympic-gold);
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .column-capital {
+    padding: var(--space-md);
+  }
+  
+  .capital-icon {
+    font-size: var(--text-3xl);
+  }
+  
+  .column-shaft {
+    padding: var(--space-lg);
+  }
+  
+  .architrave-text {
+    font-size: var(--text-base);
+  }
+}

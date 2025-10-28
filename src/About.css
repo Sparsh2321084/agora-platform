@@ -1,0 +1,409 @@
+/* ABOUT PAGE - Greek-Themed Design with Performance Optimizations */
+
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0d0d17 0%, #1a1a2e 50%, #16213e 100%);
+  color: #e8e8e8;
+  /* CSS Containment for performance */
+  contain: layout style;
+}
+
+/* Hero Section */
+.about-hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  background: 
+    linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%),
+    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  /* GPU acceleration */
+  will-change: opacity;
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #d4af37 20%,
+    #ffd700 50%,
+    #d4af37 80%,
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-greek {
+  display: block;
+  font-size: 1.5rem;
+  color: #a0a0a0;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: #b8b8b8;
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  /* Performance: Avoid expensive paint operations */
+  transform: translateZ(0);
+}
+
+.mission-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #d4af37;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.title-greek {
+  display: block;
+  font-size: 1.2rem;
+  color: #888;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.philosophy-quote {
+  background: rgba(212, 175, 55, 0.05);
+  border-left: 4px solid #d4af37;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  /* Optimize animations */
+  backface-visibility: hidden;
+}
+
+.quote-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #e8e8e8;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.quote-author {
+  font-size: 1rem;
+  color: #d4af37;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.quote-greek {
+  font-size: 0.95rem;
+  color: #888;
+  font-family: 'Georgia', serif;
+}
+
+.mission-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #c8c8c8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.mission-description strong {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.mission-description em {
+  color: #ffd700;
+  font-style: italic;
+}
+
+.mission-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pillar {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(212, 175, 55, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  /* Optimize for hover */
+  will-change: transform;
+}
+
+.pillar:hover {
+  transform: translateY(-5px);
+  background: rgba(212, 175, 55, 0.08);
+  border-color: #d4af37;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.pillar-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
+.pillar h3 {
+  font-size: 1.3rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+.pillar p {
+  font-size: 0.95rem;
+  color: #a8a8a8;
+  line-height: 1.5;
+}
+
+/* History Section */
+.history-section {
+  padding: 6rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section */
+.features-section {
+  padding: 6rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: rgba(26, 26, 46, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Performance optimizations */
+  will-change: transform;
+  contain: layout style paint;
+}
+
+.feature-card:hover {
+  border-color: #d4af37;
+  box-shadow: 
+    0 10px 40px rgba(212, 175, 55, 0.15),
+    inset 0 0 30px rgba(212, 175, 55, 0.05);
+}
+
+.feature-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+  /* Prevent layout shift */
+  height: 4rem;
+  line-height: 1;
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.feature-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #b8b8b8;
+  margin-bottom: 1rem;
+}
+
+.feature-virtue {
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 6rem 2rem;
+  background: 
+    linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%),
+    rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  color: #c8c8c8;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* Performance */
+  will-change: transform;
+}
+
+.cta-btn.primary-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f2d06b 100%);
+  color: #1a1a2e;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.cta-btn.primary-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+}
+
+.cta-btn.secondary-marble {
+  background: rgba(255, 255, 255, 0.1);
+  color: #d4af37;
+  border: 2px solid #d4af37;
+}
+
+.cta-btn.secondary-marble:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .mission-section,
+  .history-section,
+  .features-section,
+  .cta-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .mission-pillars {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mission-description {
+    text-align: left;
+  }
+}
+
+/* Performance: Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support (future enhancement) */
+@media (prefers-color-scheme: light) {
+  .about-page {
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f0f0f0 100%);
+    color: #2a2a2a;
+  }
+  
+  .hero-title,
+  .section-title,
+  .feature-title {
+    color: #8b7355;
+  }
+}

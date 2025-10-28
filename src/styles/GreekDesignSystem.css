@@ -1,0 +1,491 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * GREEK DESIGN SYSTEM FOUNDATION
+ * Based on Ancient Greek Art & Philosophy Principles
+ * ═══════════════════════════════════════════════════════════════
+ * 
+ * Inspired by:
+ * - Parthenon's Golden Ratio proportions
+ * - Polychrome sculpture coloration
+ * - Doric, Ionic, and Corinthian orders
+ * - Geometric meander patterns
+ * - Epigraphic stone inscriptions
+ * - Plato's Forms and Aristotle's essence
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   1. GOLDEN RATIO & HARMONIC PROPORTIONS
+   Based on Phi (φ ≈ 1.618) - The divine proportion
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Golden Ratio Variables */
+  --phi: 1.618;
+  --phi-inverse: 0.618;
+  
+  /* Spacing Scale (Golden Ratio progression) */
+  --space-xs: 0.382rem;    /* φ^-2 */
+  --space-sm: 0.618rem;    /* φ^-1 */
+  --space-md: 1rem;        /* base */
+  --space-lg: 1.618rem;    /* φ */
+  --space-xl: 2.618rem;    /* φ^2 */
+  --space-2xl: 4.236rem;   /* φ^3 */
+  --space-3xl: 6.854rem;   /* φ^4 */
+  
+  /* Typography Scale (Golden Ratio) */
+  --text-xs: 0.618rem;
+  --text-sm: 0.809rem;
+  --text-base: 1rem;
+  --text-lg: 1.309rem;
+  --text-xl: 1.618rem;
+  --text-2xl: 2.118rem;
+  --text-3xl: 2.618rem;
+  --text-4xl: 4.236rem;
+  --text-5xl: 6.854rem;
+  
+  /* Layout Proportions */
+  --column-main: 61.8%;    /* φ^-1 * 100 */
+  --column-side: 38.2%;    /* (1 - φ^-1) * 100 */
+  --header-height: 61.8px;
+  --card-width: 323px;     /* Fibonacci number near φ^3 */
+  --card-height: 520px;    /* ~φ * card-width */
+  
+  /* ═══════════════════════════════════════════════════════════════
+     2. POLYCHROME PALETTE - Scientific Reconstruction Colors
+     Based on ancient pigment analysis and modern reconstructions
+     ═══════════════════════════════════════════════════════════════ */
+  
+  /* Primary Ancient Pigments */
+  --egyptian-blue: #1034A6;      /* Cuprorivaite - sacred blue */
+  --azurite: #007FFF;             /* Natural copper blue */
+  --cinnabar-red: #E34234;        /* Mercury sulfide - sacred red */
+  --vermillion: #D2042D;          /* Bright ceremonial red */
+  --ochre-yellow: #E8B449;        /* Iron oxide yellow */
+  --ochre-red: #CC5500;           /* Iron oxide red earth */
+  --malachite-green: #0BDA51;     /* Copper carbonate green */
+  --orpiment-yellow: #FFC87C;     /* Arsenic sulfide gold */
+  
+  /* Marble and Stone */
+  --pentelic-marble: #F5F0E8;     /* Athens marble */
+  --parian-marble: #FFF8F0;       /* Cycladic white */
+  --marble-vein: #D4C5B0;         /* Natural veining */
+  --limestone: #E8DCC7;           /* Temple foundations */
+  --bronze-patina: #6D9E7F;       /* Weathered bronze */
+  
+  /* Gold Leaf and Precious Metals */
+  --olympic-gold: #D4AF37;        /* Chryselephantine statues */
+  --electrum: #C5B358;            /* Natural gold-silver alloy */
+  --bronze-bright: #CD7F32;       /* Polished bronze */
+  --silver-leaf: #C0C0C0;         /* Lunar associations */
+  
+  /* Sacred and Ceremonial Colors */
+  --tyrian-purple: #66023C;       /* Royal murex purple */
+  --kermes-crimson: #841B2D;      /* Insect-derived red */
+  --saffron: #F4C430;             /* Ritual yellow */
+  --laurel-green: #4A7C59;        /* Victory and Apollo */
+  
+  /* Natural Elements */
+  --aegean-blue: #0077BE;         /* Mediterranean sea */
+  --olive-green: #556B2F;         /* Sacred to Athena */
+  --earth-brown: #8B7355;         /* Terracotta and soil */
+  --shadow-black: #1a1a1a;        /* Cave and mystery */
+  --sunlight: #FFF4E6;            /* Helios's realm */
+  
+  /* Gradient Mixtures (as used in paintings) */
+  --gradient-dawn: linear-gradient(135deg, var(--saffron) 0%, var(--cinnabar-red) 50%, var(--tyrian-purple) 100%);
+  --gradient-temple: linear-gradient(180deg, var(--parian-marble) 0%, var(--pentelic-marble) 100%);
+  --gradient-bronze: linear-gradient(135deg, var(--bronze-bright) 0%, var(--bronze-patina) 100%);
+  --gradient-sky: linear-gradient(180deg, var(--egyptian-blue) 0%, var(--aegean-blue) 100%);
+  
+  /* ═══════════════════════════════════════════════════════════════
+     3. ARCHITECTURAL ORDERS - Semantic Color System
+     Doric (Strength), Ionic (Intellect), Corinthian (Opulence)
+     ═══════════════════════════════════════════════════════════════ */
+  
+  /* Doric Order - Simplicity, Structure, Strength */
+  --doric-primary: var(--pentelic-marble);
+  --doric-accent: var(--ochre-red);
+  --doric-shadow: rgba(139, 115, 85, 0.3);
+  --doric-highlight: var(--sunlight);
+  
+  /* Ionic Order - Elegance, Refinement, Intellect */
+  --ionic-primary: var(--azurite);
+  --ionic-accent: var(--olympic-gold);
+  --ionic-shadow: rgba(16, 52, 166, 0.2);
+  --ionic-highlight: var(--silver-leaf);
+  
+  /* Corinthian Order - Luxury, Detail, Celebration */
+  --corinthian-primary: var(--tyrian-purple);
+  --corinthian-accent: var(--olympic-gold);
+  --corinthian-shadow: rgba(102, 2, 60, 0.25);
+  --corinthian-highlight: var(--electrum);
+  
+  /* ═══════════════════════════════════════════════════════════════
+     4. TYPOGRAPHY - Epigraphic & Classical Styles
+     ═══════════════════════════════════════════════════════════════ */
+  
+  /* Font Families */
+  --font-epigraphic: 'Cinzel', 'Trajan Pro', serif;         /* Stone inscriptions */
+  --font-classical: 'EB Garamond', 'Garamond', serif;       /* Body text, scrolls */
+  --font-philosophical: 'Cormorant Garamond', serif;        /* Quotes, wisdom */
+  --font-ui: 'Inter', 'Helvetica Neue', sans-serif;         /* Modern UI elements */
+  
+  /* Letter Spacing (matching carved inscriptions) */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.15em;        /* Full epigraphic style */
+  
+  /* Line Heights (Golden Ratio based) */
+  --leading-tight: 1.309;            /* φ^0.5 */
+  --leading-normal: 1.618;           /* φ */
+  --leading-loose: 2.118;            /* φ * 1.309 */
+  
+  /* ═══════════════════════════════════════════════════════════════
+     5. GEOMETRIC PATTERNS - Meander & Sacred Geometry
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --meander-size: 24px;
+  --meander-weight: 3px;
+  --meander-color: var(--egyptian-blue);
+  
+  /* SVG Pattern Data URIs */
+  --pattern-meander: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h3v3h3v3h3v-6h3v-3h3v9h-3v3h-6v-3h-6v-3z' fill='%231034A6' fill-opacity='0.1'/%3E%3C/svg%3E");
+  
+  --pattern-wave: url("data:image/svg+xml,%3Csvg width='40' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.5c5 0 5-5 10-5s5 5 10 5 5-5 10-5 5 5 10 5' stroke='%23007FFF' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+  
+  --pattern-laurel: url("data:image/svg+xml,%3Csvg width='30' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='15' cy='15' rx='4' ry='8' fill='%234A7C59' fill-opacity='0.15'/%3E%3C/svg%3E");
+  
+  /* ═══════════════════════════════════════════════════════════════
+     6. SHADOWS & DEPTH - Atmospheric Perspective
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --shadow-sm: 0 1px 2px rgba(26, 26, 26, 0.1);
+  --shadow-md: 0 4px 6px rgba(26, 26, 26, 0.15);
+  --shadow-lg: 0 10px 20px rgba(26, 26, 26, 0.2);
+  --shadow-xl: 0 20px 40px rgba(26, 26, 26, 0.25);
+  --shadow-inner: inset 0 2px 4px rgba(26, 26, 26, 0.1);
+  
+  /* Marble Glow */
+  --glow-marble: 0 0 20px rgba(255, 255, 255, 0.5);
+  --glow-gold: 0 0 30px rgba(212, 175, 55, 0.6);
+  --glow-blue: 0 0 25px rgba(16, 52, 166, 0.4);
+  
+  /* ═══════════════════════════════════════════════════════════════
+     7. TRANSITIONS & ANIMATIONS - Natural Motion
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 600ms;
+  --duration-slower: 1000ms;
+  
+  --ease-natural: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* ═══════════════════════════════════════════════════════════════
+     8. BORDERS & DIVIDERS - Architectural Details
+     ═══════════════════════════════════════════════════════════════ */
+  
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 4px;
+  --border-relief: 6px;
+  
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* Column Capitals */
+  --capital-height: 48px;
+  --shaft-width: 32px;
+  --base-height: 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   9. UTILITY CLASSES - Reusable Greek Patterns
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Meander Border Utilities */
+.border-meander {
+  border: var(--border-medium) solid var(--meander-color);
+  background-image: var(--pattern-meander);
+  background-repeat: repeat-x;
+  background-position: top;
+  padding-top: var(--space-lg);
+}
+
+.border-meander-full {
+  border: var(--border-medium) solid var(--meander-color);
+  background-image: var(--pattern-meander);
+  background-repeat: repeat;
+}
+
+/* Marble Surface */
+.surface-marble {
+  background: var(--gradient-temple);
+  box-shadow: var(--shadow-md), var(--glow-marble);
+  position: relative;
+}
+
+.surface-marble::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 95%, var(--marble-vein) 100%),
+    linear-gradient(0deg, transparent 97%, var(--marble-vein) 100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Golden Ratio Container */
+.container-golden {
+  max-width: 1272px; /* Fibonacci number */
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Column Styling */
+.column-doric {
+  padding: var(--space-xl);
+  background: var(--doric-primary);
+  border: var(--border-thick) solid var(--doric-accent);
+  box-shadow: var(--doric-shadow);
+  position: relative;
+}
+
+.column-doric::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--shaft-width);
+  height: var(--capital-height);
+  background: linear-gradient(180deg, var(--doric-accent) 0%, transparent 100%);
+}
+
+.column-ionic {
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, var(--parian-marble) 0%, var(--ionic-primary) 10%, var(--parian-marble) 20%);
+  border: var(--border-medium) solid var(--ionic-accent);
+  box-shadow: var(--ionic-shadow), var(--glow-blue);
+  border-radius: var(--radius-md);
+}
+
+.column-corinthian {
+  padding: var(--space-2xl);
+  background: linear-gradient(135deg, var(--corinthian-primary) 0%, var(--parian-marble) 100%);
+  border: var(--border-relief) solid var(--corinthian-accent);
+  box-shadow: var(--corinthian-shadow), var(--glow-gold);
+  border-radius: var(--radius-lg);
+  position: relative;
+}
+
+.column-corinthian::before,
+.column-corinthian::after {
+  content: '🌿';
+  position: absolute;
+  top: calc(var(--space-lg) * -1);
+  font-size: var(--text-3xl);
+  opacity: 0.8;
+}
+
+.column-corinthian::before {
+  left: var(--space-lg);
+}
+
+.column-corinthian::after {
+  right: var(--space-lg);
+}
+
+/* Epigraphic Text */
+.text-epigraphic {
+  font-family: var(--font-epigraphic);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--shadow-black);
+  text-shadow: 
+    1px 1px 0 var(--marble-vein),
+    2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Laurel Wreath Achievement */
+.laurel-wreath {
+  position: relative;
+  padding: var(--space-lg);
+  background: radial-gradient(circle, var(--olympic-gold) 0%, transparent 70%);
+}
+
+.laurel-wreath::before,
+.laurel-wreath::after {
+  content: '🌿';
+  position: absolute;
+  font-size: var(--text-4xl);
+  opacity: 0.7;
+  animation: sway 3s ease-in-out infinite;
+}
+
+.laurel-wreath::before {
+  top: 0;
+  left: 0;
+  transform: rotate(-30deg);
+}
+
+.laurel-wreath::after {
+  top: 0;
+  right: 0;
+  transform: rotate(30deg);
+  animation-delay: 1.5s;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-30deg); }
+  50% { transform: rotate(-35deg); }
+}
+
+/* Golden Ratio Grid */
+.grid-golden {
+  display: grid;
+  grid-template-columns: var(--column-main) var(--column-side);
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .grid-golden {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contrapposto Stance (Dynamic Balance) */
+.contrapposto {
+  transform-origin: center bottom;
+  transition: transform var(--duration-normal) var(--ease-natural);
+}
+
+.contrapposto:hover {
+  transform: rotate(1deg) translateY(-2px);
+}
+
+/* Sacred Center (Omphalos) */
+.omphalos-center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--olympic-gold) 0%, var(--bronze-patina) 100%);
+  box-shadow: var(--shadow-xl), var(--glow-gold);
+  animation: pulse-sacred 4s ease-in-out infinite;
+}
+
+@keyframes pulse-sacred {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: var(--shadow-xl), var(--glow-gold);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-xl), 0 0 50px rgba(212, 175, 55, 0.8);
+  }
+}
+
+/* Frieze Narrative Strip */
+.frieze-strip {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--gradient-temple);
+  border-top: var(--border-thick) solid var(--egyptian-blue);
+  border-bottom: var(--border-thick) solid var(--egyptian-blue);
+  scroll-behavior: smooth;
+}
+
+.frieze-strip::-webkit-scrollbar {
+  height: 8px;
+}
+
+.frieze-strip::-webkit-scrollbar-track {
+  background: var(--limestone);
+}
+
+.frieze-strip::-webkit-scrollbar-thumb {
+  background: var(--olympic-gold);
+  border-radius: var(--radius-full);
+}
+
+/* Philosophical Quote Block */
+.quote-philosophical {
+  font-family: var(--font-philosophical);
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: var(--leading-loose);
+  color: var(--shadow-black);
+  padding: var(--space-xl) var(--space-2xl);
+  background: var(--parian-marble);
+  border-left: var(--border-relief) solid var(--olympic-gold);
+  margin: var(--space-2xl) 0;
+  position: relative;
+}
+
+.quote-philosophical::before {
+  content: '"';
+  font-size: var(--text-5xl);
+  position: absolute;
+  top: 0;
+  left: var(--space-lg);
+  color: var(--olympic-gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+/* Animation Utilities */
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-normal) var(--ease-out);
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enlightenment {
+  animation: enlightenment var(--duration-slower) var(--ease-natural) infinite;
+}
+
+@keyframes enlightenment {
+  0%, 100% {
+    box-shadow: var(--shadow-md);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: var(--shadow-lg), var(--glow-marble);
+    filter: brightness(1.1);
+  }
+}
