@@ -286,6 +286,11 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.json());
 
+// Lightweight health-check endpoint for load balancers / platform probes
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 // ═══════════════════════════════════════════════════════════════════
 // SESSION MANAGEMENT UTILITIES
 // ═══════════════════════════════════════════════════════════════════
